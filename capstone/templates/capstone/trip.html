@@ -1,0 +1,92 @@
+{% extends "capstone/layout.html" %}
+
+{% block body %}
+<script>
+
+    function removeElement(elementId) {
+    // Removes an element from the document
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+    }
+
+
+    function get_passengers(trip_id){
+    fetch(`/passengers/${trip_id}`)
+    .then(response => response.text())
+    .then(text => {
+        let passengers = document.getElementById('passengers');
+        passengers.textContent = "Passengers: " + text;
+    });
+    }
+
+    function be_passenger(trip_id){
+    fetch(`/add_passenger/${trip_id}`)
+    .then(response => response.text())
+    .then(text => {
+        swal("Good job!", text, "success");
+        let requestButton = document.getElementById('be_passenger')
+        get_passengers(trip_id)
+        if(requestButton.innerHTML.indexOf('List for trip') != -1){
+            requestButton.textContent = 'Unlist from trip'
+        }
+        else{
+            requestButton.textContent = 'List for trip'
+        }
+    });
+    }
+
+</script>
+
+    {% if message %}
+    <div class="alert alert-danger" role="alert">
+        {{message}}
+    </div>
+    {% endif %}
+
+
+    <div id="success"> 
+
+    </div>
+    
+    <h2>Trip</h2>
+
+    {{passengers}}
+
+    {% if trip %}
+
+        <h5>Origin: {{trip.origin}} </h5> <h5>Destination: {{trip.destination}}</h5>
+        <h5>Departure: {{trip.date}} at {{trip.time}} </h5>
+        <h5>Driver: {{trip.driver}}</h5>
+        <h5>Duration: {{trip.est_time}} </h5>
+        {% if trip.passengers %}
+            <h5><div id="passengers">
+                Passengers: {{trip.passengers.count}}
+            </div></h5>
+        {% else %}
+            <h5>No passengers yet.</h5>
+        {% endif %}
+        
+        {% if self %}
+        <form action="{% url 'delete_trip' trip.id %}" method="POST"></form>
+            <button name="request" type="submit" id="request_button" class="btn btn-primary">Delete Trip</button>
+        {% else %}
+            <button name="request" type="submit" id="be_passenger" class="btn btn-primary" onclick="be_passenger({{trip.id}})">
+                {% if is_passenger %}
+                Unlist from trip
+                {% else %}
+                List for trip
+                {% endif %}
+            </button>
+        {% endif %}
+        </ul>
+    {% else %}
+
+        We could't find that trip :(
+
+    {% endif %}
+    
+
+
+
+
+{% endblock %}

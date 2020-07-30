@@ -1,0 +1,271 @@
+
+@font-face{
+    src: url(fonts/SlateForOnePlus-Book.ttf);
+    font-family: oneplus;
+}
+@font-face{
+    src: url(fonts/AlegreyaSC-Italic.ttf);
+    font-family: heading
+}
+
+@font-face{
+    src: url(fonts/Audrey-Bold.otf);
+    font-family: audrey;
+}
+
+body{
+    color: rgb(22, 22, 22);
+    background-color: #ffffff;
+}
+
+h1,h2,h3,h4,h5{
+    text-align: center;
+    font-weight: bold;
+}
+
+h1, h2 {
+    padding: 60px;
+    font-family: audrey;
+    text-transform:uppercase;
+}
+
+h3,h4,h5,h6{
+    padding: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+a{
+  color: black
+}
+
+a:focus, a:hover{
+  color: black;
+  text-decoration: underline;
+}
+
+li{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.swal-overlay {
+  background-color: rgba(12, 12, 12, 0.25);
+}
+
+.swal-button {
+  background-color: rgb(14, 190, 52)
+}
+
+
+.form-group{
+  width: 50%;
+}
+
+#time_picker, #date_picker{
+  width: 220px;
+}
+
+/* Modify the background color */ 
+.navbar-expand-lg { 
+    background-color: rgb(12, 12, 12, 0); 
+} 
+/* Modify brand and text color */ 
+  
+.navbar-expand-lg .navbar-brand, 
+.navbar-custom .navbar-text { 
+    color: rgb(12, 12, 12)
+    ; 
+}
+
+.nav-link:focus,
+.nav-link:hover {
+  color: rgb(14, 190, 52)
+}
+
+.nav-link{
+    font-family: oneplus;
+    color: rgb(12, 12, 12);
+}
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff; 
+}
+
+.container-login100 {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;;
+}
+
+
+.wrap-login100 {
+  width: 390px;
+  background: #ffffff;
+  border-radius: 6px;
+  position: relative;
+}
+
+
+/*==================================================================
+[ Form ]*/
+
+.login100-form {
+  width: 100%;
+  color: black;
+  
+}
+
+.login100-form a{
+    color: rgb(14, 190, 52);
+}
+
+.login100-form-title {
+  font-family: Ubuntu-Bold;
+  font-size: 33px;
+  color: black;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 20px;
+
+  width: 100%;
+  display: block;
+}
+
+
+
+/*------------------------------------------------------------------
+[ Input ]*/
+
+.wrap-input100 {
+  width: 100%;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  padding-bottom: 7px;
+}
+
+
+/*---------------------------------------------*/
+.input100 {
+  font-family: Ubuntu-Bold;
+  color: rgb(14, 190, 52);
+  line-height: 1.2;
+  font-size: 18px;
+  border-radius: 6px;
+  
+
+  display: block;
+  width: 100%;
+  background: transparent;
+  height: 62px;
+  padding: 0 20px 0 32px;
+  border-color: rgba(12, 12, 12, 0.45);
+}
+/*------------------------------------------------------------------
+[ Focus Input ]*/
+
+.focus-input100 {
+  position: absolute;
+  display: block;
+  width: calc(100% + 1px);
+  height: calc(100% - 5px);
+  top: -1px;
+  left: -0.8px;
+  pointer-events: none;
+  border: 3px solid rgb(14, 190, 52);
+  border-radius: 6px;
+
+  visibility: hidden;
+  opacity: 0;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+  -webkit-transform: scaleX(1.7) scaleY(1.7);
+  -moz-transform: scaleX(1.7) scaleY(1.7);
+  -ms-transform: scaleX(1.7) scaleY(1.7);
+  -o-transform: scaleX(1.7) scaleY(1.7);
+  transform: scaleX(1.7) scaleY(1.7);
+}
+
+.input100:focus + .focus-input100 {
+  visibility: visible;
+  opacity: 1;
+
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+.eff-focus-selection {
+  visibility: visible;
+  opacity: 1;
+
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+/*------------------------------------------------------------------
+[ Button ]*/
+.container-login100-form-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.login100-form-btn {
+  font-family: Ubuntu-Bold;
+  font-size: 16px;
+  color: #1e1e1e;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 62px;
+  background-color: silver;
+  border-radius: 6px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.login100-form-btn:hover {
+  background-color: rgb(14, 190, 52);
+  color:#1e1e1e;
+}
+
