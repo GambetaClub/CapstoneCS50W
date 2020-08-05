@@ -2,59 +2,6 @@
 
 {% block body %}
 
-    <script>
-
-        function validate(selection){
-        var ddl = document.getElementById(selection);
-        var selectedValue = ddl.options[ddl.selectedIndex].value;
-            if (selectedValue == ""){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-
-        function get_cities(state_id, place){
-        fetch(`/get_cities/${state_id}`)
-        .then(response => response.text())
-        .then(data => {
-            var info = document.getElementById(place);
-            info.innerText = null
-            new_data = data.split(',')
-            new_data.pop()
-            var opt_group = document.createElement('optgroup');
-            opt_group.label = "City"
-            info.appendChild(opt_group)
-            for (let index = 0; index < new_data.length; index++) {
-                var opt = document.createElement('option');
-                opt.appendChild( document.createTextNode(new_data[index]));
-                opt.value = new_data[index]; 
-                opt_group.appendChild(opt);
-            }
-            $('.selectpicker').selectpicker('refresh');
-        })
-        
-        };
-        
-
-        document.addEventListener('DOMContentLoaded', (event) => {
-
-            var form = document.getElementById('form')
-            
-            form.addEventListener('submit', (e) => {
-
-            let o_city = validate('o_city')
-            let d_city = validate('d_city')
-            
-            if(o_city || d_city == true){
-                e.preventDefault()
-                swal("Imposible to Search", 'Please fill all blanks to search a trip', "error");
-            }
-        })
-        });
-    </script>
-
     <div hidden class="alert alert-danger" id="alert">
         
     </div>
@@ -66,49 +13,43 @@
     
     <h1>Trips</h1>
 
-    <form id="form" action="{% url 'search_trip' %}" method="POST">
+    <form id="form" action="{% url 'search_trip' %}" method="GET">
         {% csrf_token %}
-        <div class="form-group">
-            <h6>Origin</h6>
-            <select id="o_state" name='o_state' class="selectpicker" data-live-search="true" onchange="get_cities(document.querySelector('#o_state').value, 'o_city')">
-                <optgroup label="State">
-                <option value="" selected disabled>Choose a State</option>
-                {% for state in states %}
-                <option id="o_state_option" value="{{state.id}}">{{state.state_name}}</option>
-                {% endfor %}
-                </optgroup>
-            </select>
-            <select id="o_city" name="o_city" class="selectpicker" data-live-search="true">
-                <option value="" disabled selected>Choose a City</option>
-            </select>
+        <div class="form-row">
+            <div class="form-group col-4">
+                <h6>Origin</h6>
+                <input type="search" name="o_state" placeholder="State" class="form-control">
+                <input type="search" name="o_city" placeholder="City" class="form-control">
+            </div>
+            <div class="form-group col-4">
+                <h6>Destination</h6>
+                <input type="search" name="d_state" placeholder="State" class="form-control">
+                <input type="search" name="d_city" placeholder="City" class="form-control">
+            </div>
         </div>
-        <div class="form-group">
-            <h6>Destination</h6>
-            <select id="d_state" name="d_state" class="selectpicker" data-live-search="true" onchange="get_cities(document.querySelector('#d_state').value,'d_city')">
-                <optgroup label="State">
-                <option value="" selected disabled>Choose a State</option>
-                {% for state in states %}
-                <option id="d_state_option" value="{{state.id}}">{{state.state_name}}</option>
-                {% endfor %}
-                </optgroup>
-            </select>
-            <select id="d_city" name="d_city" class="selectpicker" data-live-search="true">
-                <option value="" disabled selected>Choose a City</option>
-            </select>
-        </div>
-        <div class="form-group">
+        <div class="form-row">
             <button class="btn btn-primary" type="submit">Search</button>
         </div>
     </form>
 
     {% if trips %}
-    <h6>Current trips:</h6>
+    <h6>Trips Available:</h6>
     <ul>
     {% for trip in trips %}
         <li>
-            <a href="{% url 'trip' trip.id %}">{{trip}}</a>
-        </li>
+            <a href="{% url 'trip' trip.id %}">
+             <div><strong>Origin:</strong> {{trip.origin.id_state.state_name}}, {{trip.origin.city}}</div>
+             <div><strong>Destination:</strong> {{trip.destination.id_state.state_name}}, {{trip.destination.city}}</div> 
+             <div><strong>Departure:</strong> {{trip.date}} at {{trip.time}}</div>
+             <div><strong>Seats Available:</strong> {{trip.avai_seats}} </div>
+            </a>
+        </li><hr>
     {% endfor %}
+
+    {% else %}
+
+    No results
+    
     </ul>
     {% endif %}
 

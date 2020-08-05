@@ -2,7 +2,15 @@
 
 {% block body %}
 <script>
-
+    $(window).ready(function(){
+    $(".boton").wrapInner('<div class=botontext></div>');
+    
+    $(".botontext").clone().appendTo( $(".boton") );
+    
+    $(".boton").append('<span class="twist"></span><span class="twist"></span><span class="twist"></span><span class="twist"></span>');
+    
+    $(".twist").css("width", "25%").css("width", "+=3px");
+    });
     function removeElement(elementId) {
     // Removes an element from the document
     var element = document.getElementById(elementId);
@@ -17,20 +25,30 @@
         let passengers = document.getElementById('passengers');
         passengers.textContent = "Passengers: " + text;
     });
+    fetch(`/seats/${trip_id}`)
+    .then(response => response.text())
+    .then(text => {
+        let seats = document.getElementById('seats');
+        seats.textContent = "Seats Available: " + text;
+    })
     }
 
     function be_passenger(trip_id){
     fetch(`/add_passenger/${trip_id}`)
-    .then(response => response.text())
-    .then(text => {
-        swal("Good job!", text, "success");
-        let requestButton = document.getElementById('be_passenger')
-        get_passengers(trip_id)
-        if(requestButton.innerHTML.indexOf('List for trip') != -1){
-            requestButton.textContent = 'Unlist from trip'
-        }
-        else{
-            requestButton.textContent = 'List for trip'
+    .then(response => response.status)
+    .then(status => {
+        if (status == 403){
+            swal("Error", "There not seats available for this trip.", "error")
+        }else{         
+            let requestButton = document.getElementById('be_passenger')
+            get_passengers(trip_id)
+            if(requestButton.innerHTML.indexOf('List for trip') != -1){
+                swal("Success", "You have succesfully list for the trip.", "success")
+                requestButton.textContent = 'Unlist from trip'
+            }else{
+                swal("Success", "You have succesfully unlisted for the trip.", "success")
+                requestButton.textContent = 'List for trip'
+            }
         }
     });
     }
@@ -50,25 +68,41 @@
     
     <h2>Trip</h2>
 
-    {{passengers}}
-
     {% if trip %}
 
         <h5>Origin: {{trip.origin}} </h5> <h5>Destination: {{trip.destination}}</h5>
         <h5>Departure: {{trip.date}} at {{trip.time}} </h5>
         <h5>Driver: {{trip.driver}}</h5>
         <h5>Duration: {{trip.est_time}} </h5>
+        <h5><div id="seats">Seats Available: {{trip.avai_seats}}</div></h5>
         {% if trip.passengers %}
+            {% if self %}
+
+            <h5><div id="passengers">
+                Passengers: {{trip.passengers.count}}
+                <div>
+                {% for passenger in passengers %}
+
+                    {{passenger.username}}, <br>
+
+                {% endfor %}
+                </div>
+            </div></h5>
+            {% else %}
             <h5><div id="passengers">
                 Passengers: {{trip.passengers.count}}
             </div></h5>
+            {% endif %}
         {% else %}
             <h5>No passengers yet.</h5>
         {% endif %}
-        
+
         {% if self %}
-        <form action="{% url 'delete_trip' trip.id %}" method="POST"></form>
+        <form action="{% url 'delete_trip' trip.id %}" method="POST">
+            {% csrf_token %}
             <button name="request" type="submit" id="request_button" class="btn btn-primary">Delete Trip</button>
+        </form>
+
         {% else %}
             <button name="request" type="submit" id="be_passenger" class="btn btn-primary" onclick="be_passenger({{trip.id}})">
                 {% if is_passenger %}

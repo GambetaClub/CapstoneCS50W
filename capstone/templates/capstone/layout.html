@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Capstone{% endblock %}</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'capstone/style.css' %}?{% now 'U' %}">
@@ -28,10 +28,16 @@
             </li>
             {% if user.is_authenticated %}
                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user_trips' %}">Your Trips</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'trips' %}">Trips</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'create_trip' %}">Create Trip</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'messages' %}">Messages</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Log Out</a>

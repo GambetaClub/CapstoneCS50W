@@ -8,7 +8,18 @@ class User(AbstractUser):
 
     def __str__(self):
         return f"{self.username}"
+
+
+class Message(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="sent_messages")
+    receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name="received_messages")
+    content = models.TextField(max_length=230)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    read = models.BooleanField(default=False)
     
+    def __str__(self):
+        return f"<{self.timestamp}> {self.author}: {self.content}"
+
 class UsCities(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
     id_state = models.ForeignKey('UsStates', models.DO_NOTHING, db_column='ID_STATE')  # Field name made lowercase.
@@ -48,4 +59,4 @@ class Trip(models.Model):
     est_time = models.CharField(max_length=64)
     
     def __str__(self):
-        return f"<Origin: {self.origin} {self.origin.id_state.state_name}>, <Destination: {self.destination} {self.destination.id_state.state_name}> <Date:{self.date}>, <Time:{self.time}>"
+        return f"<Origin: {self.origin} {self.origin.id_state.state_name}>, <Destination: {self.destination} {self.destination.id_state.state_name}> <Date:{self.date}>, <Departure:{self.time}>"
