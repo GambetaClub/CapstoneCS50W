@@ -76,11 +76,11 @@ def register(request):
 def messages(request):
     return render(request, "capstone/messages.html", {
         "users": User.objects.all(),
-        "received_messages": Message.objects.filter(receiver=request.user).order_by('-id')[:20],
-        "sent_messages": Message.objects.filter(author=request.user).order_by('-id')[:20]
+        "received_messages": Message.objects.filter(receiver=request.user).order_by('-id')[:12],
+        "sent_messages": Message.objects.filter(author=request.user).order_by('-id')[:12]
     })
     
-       
+@login_required
 def send_message(request):
     if request.method == "POST":
         msg_content = request.POST['content']
@@ -176,8 +176,9 @@ def create_trip(request):
     else:
         return render(request, "capstone/create_trip.html", {
             "states": UsStates.objects.all()
-        })    
- 
+        })
+        
+@login_required
 def delete_trip(request, trip_id):
     trip_obj = Trip.objects.get(id=trip_id)
     if trip_obj.driver == request.user:
@@ -194,6 +195,7 @@ def get_cities(request,state_id):
     cities = list(UsCities.objects.filter(id_state=state_id))
     return HttpResponse(cities)
 
+@login_required
 def add_passenger(request, trip_id):
     trip_obj = Trip.objects.get(id=trip_id)
     user = request.user
@@ -202,12 +204,10 @@ def add_passenger(request, trip_id):
             trip_obj.passengers.remove(user)
             trip_obj.avai_seats += 1
             trip_obj.save()
-            return HttpResponse('You have succesfully unlisted from the trip')
         else:
             trip_obj.passengers.add(user)
             trip_obj.avai_seats -= 1
             trip_obj.save()
-            return HttpResponse('You have succesfully registered for the trip.')
     else:
         return HttpResponseForbidden('This trip has no seats available.')
     
@@ -231,7 +231,7 @@ def read_message(request, message_id):
         return render(request, "cpastone/error.html",{
             "message": "You cannot read someone's else message."
         })
-        
+       
 def full_trip(request):
     return render(request, "capstone/error.html", {
         "message": "This trips has no seats available"

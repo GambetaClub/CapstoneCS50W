@@ -15,21 +15,39 @@
 
     <form id="form" action="{% url 'search_trip' %}" method="GET">
         {% csrf_token %}
-        <div class="form-row">
-            <div class="form-group col-4">
-                <h6>Origin</h6>
-                <input type="search" name="o_state" placeholder="State" class="form-control">
-                <input type="search" name="o_city" placeholder="City" class="form-control">
+            <h5>Origin</h5>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="form__group field">
+                        <input type="search" class="form__field" placeholder="State" name="o_state"/>
+                        <label for="name" class="form__label">State</label>  
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form__group field">
+                        <input type="search" class="form__field" placeholder="City" name="o_city"/>
+                        <label for="name" class="form__label">City</label>  
+                    </div>
+                </div>
             </div>
-            <div class="form-group col-4">
-                <h6>Destination</h6>
-                <input type="search" name="d_state" placeholder="State" class="form-control">
-                <input type="search" name="d_city" placeholder="City" class="form-control">
+            <h5>Destination</h5>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="form__group field">
+                        <input type="search" class="form__field" placeholder="State" name="d_state"/>
+                        <label for="name" class="form__label">State</label>  
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form__group field">
+                        <input type="search" class="form__field" placeholder="City" name="d_city"/>
+                        <label for="name" class="form__label">City</label>  
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <button class="btn btn-primary" type="submit">Search</button>
-        </div>
+            <div class="form-row">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
     </form>
 
     {% if trips %}

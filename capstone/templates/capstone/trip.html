@@ -2,21 +2,6 @@
 
 {% block body %}
 <script>
-    $(window).ready(function(){
-    $(".boton").wrapInner('<div class=botontext></div>');
-    
-    $(".botontext").clone().appendTo( $(".boton") );
-    
-    $(".boton").append('<span class="twist"></span><span class="twist"></span><span class="twist"></span><span class="twist"></span>');
-    
-    $(".twist").css("width", "25%").css("width", "+=3px");
-    });
-    function removeElement(elementId) {
-    // Removes an element from the document
-    var element = document.getElementById(elementId);
-    element.parentNode.removeChild(element);
-    }
-
 
     function get_passengers(trip_id){
     fetch(`/passengers/${trip_id}`)
@@ -38,12 +23,12 @@
     .then(response => response.status)
     .then(status => {
         if (status == 403){
-            swal("Error", "There not seats available for this trip.", "error")
+            swal("Error", "There are not seats available for this trip.", "error")
         }else{         
             let requestButton = document.getElementById('be_passenger')
             get_passengers(trip_id)
             if(requestButton.innerHTML.indexOf('List for trip') != -1){
-                swal("Success", "You have succesfully list for the trip.", "success")
+                swal("Success", "You have succesfully listed for the trip.", "success")
                 requestButton.textContent = 'Unlist from trip'
             }else{
                 swal("Success", "You have succesfully unlisted for the trip.", "success")
