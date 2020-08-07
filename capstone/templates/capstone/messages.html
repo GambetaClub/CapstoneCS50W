@@ -7,9 +7,10 @@
             function check(e){
                 e.preventDefault();
                 let selection  = document.getElementById('receiver_select')
-                console.log('You selected: ', selection.value);
                 if(selection.value == ""){
-                    swal("Warning", "You have selected no receiver for your message.", "warning")
+                    document.getElementById("button").classList.remove("clic");
+                    document.getElementById("button").classList.add("button");
+                    swal("Warning", "You have selected no receiver for your message.", "warning");
                     return false;
                 }
                 else{
@@ -39,18 +40,22 @@
         {% csrf_token %}
             <div class="ui-input-container">
                 <label class="ui-form-input-container">
-                  <textarea class="ui-form-input" id="word-count-input" name="content"></textarea>
-                  <span class="form-input-label">Message</span>
+                    <textarea class="ui-form-input" id="word-count-input" name="content"></textarea>
+                    <span class="form-input-label">Message</span>
                 </label>
-                <label class="ui-form-input-container">
-                <select name="receiver" id="receiver_select" class="selectpicker" data-live-search="true">
-                    <option value="" selected disabled>Select a receiver</option>
-                    {% for user in users %}
-                    <option value="{{user.id}}">{{user.username}}</option>
-                    {% endfor %}    
-                </select>
-                <button class="btn btn-one" type="submit"><span>Send</span></button>
-            </label>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6"> 
+                    <select name="receiver" id="receiver_select" class="selectpicker" data-live-search="true">
+                        <option value="" selected disabled>Select a receiver</option>
+                        {% for user in users %}
+                        <option value="{{user.id}}">{{user.username}}</option>
+                        {% endfor %}    
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <button id="button" class="button" type="submit">SEND</button>
+                </div>
             </div>
     </form>
     <h5>Received messages</h5>

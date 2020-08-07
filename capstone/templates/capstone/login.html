@@ -3,13 +3,11 @@
 {% load static %}
 
 {% block body %}
-
     {% if message %}
     <div class="alert alert-danger" role="alert">
         {{message}}
     </div>
     {% endif %}
-    
     <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
@@ -32,9 +30,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn m-t-17">
-						<button class="login100-form-btn" type="submit">
-							Login
-						</button>
+						<button id="button" class="button" type="submit">LOGIN</button>
 					</div>
 
 				</form>

@@ -13,6 +13,16 @@
   font-family: audrey;
 }
 
+
+.col-auto{
+  padding: 10px;
+  margin: 0 auto;
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 body{
   color: rgb(22, 22, 22);
   background-color: #ffffff;
@@ -34,11 +44,11 @@ h3,h4,h5,h6{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 a{
-color: black
+color: #232323
 }
 
 a:focus, a:hover{
-color: black;
+color: #232323;
 text-decoration: underline;
 }
 
@@ -46,13 +56,12 @@ li{
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.unread{
-  font-weight: bold;
+.alert{
+  margin-top: 90px;
 }
 
-.form-row{
-  width: 100%;
-  margin: 0 auto
+.unread{
+  font-weight: bold;
 }
 
 .dot {
@@ -77,11 +86,6 @@ background-color: rgba(12, 12, 12, 0.25);
 
 .swal-button {
 background-color: rgb(0, 200, 5)
-}
-
-
-.selectpicker{
-  box-shadow: rgb(0, 200, 5);
 }
 
 
@@ -239,7 +243,7 @@ position: relative;
 
 .login100-form {
 width: 100%;
-color: black;
+color: #232323;
 
 }
 
@@ -250,7 +254,7 @@ color: black;
 .login100-form-title {
 font-family: Ubuntu-Bold;
 font-size: 33px;
-color: black;
+color: #232323;
 line-height: 1.2;
 text-transform: uppercase;
 text-align: center;
@@ -277,9 +281,9 @@ padding-bottom: 7px;
 /*---------------------------------------------*/
 .input100 {
 font-family: Ubuntu-Bold;
-color: rgb(0, 200, 5);
+color: #232323;
 line-height: 1.2;
-font-size: 18px;
+font-size: 17px;
 border-radius: 6px;
 
 
@@ -341,110 +345,13 @@ opacity: 1;
 transform: scale(1);
 }
 
-/*------------------------------------------------------------------
-[ Button ]*/
-.container-login100-form-btn {
-width: 100%;
-display: -webkit-box;
-display: -webkit-flex;
-display: -moz-box;
-display: -ms-flexbox;
-display: flex;
-flex-wrap: wrap;
-}
-
-.login100-form-btn {
-font-family: Ubuntu-Bold;
-font-size: 16px;
-color: #1e1e1e;
-line-height: 1.2;
-text-transform: uppercase;
-
-display: -webkit-box;
-display: -webkit-flex;
-display: -moz-box;
-display: -ms-flexbox;
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 0 20px;
-width: 100%;
-height: 62px;
-background-color: silver;
-border-radius: 6px;
-
--webkit-transition: all 0.4s;
--o-transition: all 0.4s;
--moz-transition: all 0.4s;
-transition: all 0.4s;
-}
-
-.login100-form-btn:hover {
-background-color: rgb(0, 200, 5);
-color:#1e1e1e;
-}
-
-/*
-========================
-      BUTTON ONE
-========================
-*/
-
-.btn-one {
-	color: rgba(0, 0, 0, 0.801);
-	transition: all 0.3s;
-	position: relative;
-}
-.btn-one span {
-	transition: all 0.3s;
-}
-.btn-one::before {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	opacity: 0;
-	transition: all 0.3s;
-	border-top-width: 1px;
-	border-bottom-width: 1px;
-	border-top-style: solid;
-	border-bottom-style: solid;
-	border-top-color: rgb(0, 200, 5);
-	border-bottom-color: rgb(0, 200, 5);
-	transform: scale(0.1, 1);
-}
-.btn-one:hover span {
-	letter-spacing: 2px;
-}
-.btn-one:hover::before {
-	opacity: 1;	
-	transform: scale(1, 1);	
-}
-.btn-one::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	transition: all 0.3s;
-	background-color: rgba(0, 0, 0, 0.096);
-}
-.btn-one:hover::after {
-	opacity: 0;	
-	transform: scale(0.1, 1);
-}
 
 /*Textarea*/
 
 .ui-input-container {
   background-color: #fff;
   padding: 3rem;
-  border-radius: 4px;
+  border-radius: 8px;
   width: 50%;
   margin: 0 auto;
 }
@@ -462,7 +369,7 @@ color:#1e1e1e;
 }
 .ui-form-input {
   padding: 13px 15px;
-  border-radius: 8px;
+  border-radius: 17px;
   border: 2px solid rgb(0, 200, 5);
   outline: 0;
   width: 100%;
@@ -482,23 +389,6 @@ color:#1e1e1e;
   text-transform: capitalize;
 }
 
-.ui-form-btn {
-  padding: 13px 15px;
-  border-radius: 8px;
-  outline: 0;
-  width: 100%;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  color: white;
-  font-weight: 500;
-}
-
-.error .ui-form-input,
-.error .form-input-label {
-  border-color: #d50000;
-  color: #d50000;
-}
 
 textarea {
   min-height: 6em;
@@ -522,7 +412,7 @@ textarea {
   border-bottom: 2px solid #9b9b9b;
   outline: 0;
   font-size: 1.3rem;
-  color: black;
+  color: #232323;
   padding: 7px 0;
   background: transparent;
   -webkit-transition: border-color 0.2s;
@@ -588,3 +478,150 @@ textarea {
           box-shadow: none;
 }
 
+/* SUBMIT BUTTON*/
+
+button {
+  outline: none !important;
+  box-shadow: none !important;
+  outline: none;
+  height: 40px;
+  text-align: center;
+  width: 130px;
+  border-radius: 40px;
+  background: #fff;
+  border: 2px solid #00c805;
+  color: #00c805;
+  letter-spacing: 1px;
+  text-shadow: 0;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  color: white;
+  background: #00c805;
+}
+
+button:active {
+  letter-spacing: 2px;
+}
+
+.onclic {
+  width: 40px;
+  border-color: #bbbbbb;
+  border-width: 3px;
+  font-size: 0;
+  border-left-color: #00c805;
+  -webkit-animation: rotating 2s 0.25s linear infinite;
+          animation: rotating 2s 0.25s linear infinite;
+}
+
+.onclic:after {
+  content: "";
+}
+
+.onclic:hover {
+  color: #00c805;
+  background: white;
+}
+
+.validate {
+  font-size: 13px;
+  color: white;
+  background: #00c805;
+}
+
+.validate:after {
+  font-family: 'FontAwesome';
+  content: "\f00c";
+}
+
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+/* SELECT PICKER */
+
+.bootstrap-select {
+  max-width: 400px;
+}
+.bootstrap-select .btn{
+  outline: none !important;
+  box-shadow: none !important;
+  text-align: center;
+  background-color: #fff;
+  border-style: solid;
+  border: 2px solid rgb(0, 200, 5);
+  border-radius: 6px;
+  font-weight: 200;
+  padding: 12px 12px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.bootstrap-select .dropdown-menu {
+  margin: 15px 0 0;
+}
+
+.form-control{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.form-control:hover, :active, :focus{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.form-control:focus {
+  color: #232323;
+  background-color: #fff;
+  border: 2px solid rgb(0, 200, 5);
+  outline: 0;
+  box-shadow: none;
+}
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder,
+.bootstrap-select>.dropdown-toggle.bs-placeholder:active,
+.bootstrap-select>.dropdown-toggle.bs-placeholder:focus,
+.bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: #fff !important;
+  color: rgb(0, 200, 5) !important;
+  content: uppercase !important;
+}
+
+.bootstrap-select .dropdown-toggle .filter-option {
+  height: 40px !important;
+  width: 230px !important;
+  border-radius: 6px !important;
+  letter-spacing: 1px !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  text-align: center !important;
+}

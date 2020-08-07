@@ -85,11 +85,11 @@
         {% if self %}
         <form action="{% url 'delete_trip' trip.id %}" method="POST">
             {% csrf_token %}
-            <button name="request" type="submit" id="request_button" class="btn btn-primary">Delete Trip</button>
+            <button name="request" type="submit" id="request_button" class="button">Delete Trip</button>
         </form>
 
         {% else %}
-            <button name="request" type="submit" id="be_passenger" class="btn btn-primary" onclick="be_passenger({{trip.id}})">
+            <button name="request" type="submit" id="be_passenger" class="button" onclick="be_passenger({{trip.id}})">
                 {% if is_passenger %}
                 Unlist from trip
                 {% else %}
