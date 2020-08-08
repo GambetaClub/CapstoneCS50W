@@ -15,38 +15,30 @@
 
     <form id="form" action="{% url 'search_trip' %}" method="GET">
         {% csrf_token %}
-            <h5>Origin</h5>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <div class="form__group field">
-                        <input type="search" class="form__field" placeholder="State" name="o_state"/>
-                        <label for="name" class="form__label">State</label>  
-                    </div>
+            <div class="d-flex justify-content-center">
+                <div class="form__group">
+                    <input type="search" class="form__field" placeholder="State" name="o_state" style="width: 430px;"/>
+                    <label for="o_state" class="form__label">State</label>  
                 </div>
-                <div class="form-group col-md-6">
-                    <div class="form__group field">
-                        <input type="search" class="form__field" placeholder="City" name="o_city"/>
-                        <label for="name" class="form__label">City</label>  
-                    </div>
+                <div class="form__group">
+                    <input type="search" class="form__field" placeholder="City" name="o_city" style="width: 430px;"/>
+                    <label for="o_city" class="form__label">City</label>  
                 </div>
             </div>
-            <h5>Destination</h5>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <div class="form__group field">
-                        <input type="search" class="form__field" placeholder="State" name="d_state"/>
-                        <label for="name" class="form__label">State</label>  
-                    </div>
+            <div class="d-flex justify-content-center">
+                <div class="form__group">
+                    <input type="search" class="form__field" placeholder="State" name="d_state" style="width: 430px;"/>
+                    <label for="d_state" class="form__label">State</label>  
                 </div>
-                <div class="form-group col-md-6">
-                    <div class="form__group field">
-                        <input type="search" class="form__field" placeholder="City" name="d_city"/>
-                        <label for="name" class="form__label">City</label>  
-                    </div>
+                <div class="form__group">
+                    <input name="d_city" type="search" class="form__field" placeholder="City" style="width: 430px;"/>
+                    <label for="d_city" class="form__label">City</label>  
                 </div>
             </div>
-            <div class="form-row">
-                <button id="button" class="button" type="submit">Search</button>
+            <div class="d-flex justify-content-center">
+                <div>
+                    <button id="button" class="button" type="submit" style="width: 260; height: 120;">SEARCH</button>
+                </div>  
             </div>
     </form>
 
@@ -56,10 +48,10 @@
     {% for trip in trips %}
         <li>
             <a href="{% url 'trip' trip.id %}">
-             <div><strong>Origin:</strong> {{trip.origin.id_state.state_name}}, {{trip.origin.city}}</div>
-             <div><strong>Destination:</strong> {{trip.destination.id_state.state_name}}, {{trip.destination.city}}</div> 
-             <div><strong>Departure:</strong> {{trip.date}} at {{trip.time}}</div>
-             <div><strong>Seats Available:</strong> {{trip.avai_seats}} </div>
+             <div><div class="strong">Origin:</div> {{trip.origin.id_state.state_name}}, {{trip.origin.city}}</div>
+             <div><div class="strong">Destination:</div> {{trip.destination.id_state.state_name}}, {{trip.destination.city}}</div> 
+             <div><div class="strong">Departure:</div> {{trip.date}} at {{trip.time}}</div>
+             <div><div class="strong">Seats Available:</div> {{trip.avai_seats}} </div>
             </a>
         </li><hr>
     {% endfor %}

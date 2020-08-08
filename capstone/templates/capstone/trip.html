@@ -8,13 +8,13 @@
     .then(response => response.text())
     .then(text => {
         let passengers = document.getElementById('passengers');
-        passengers.textContent = "Passengers: " + text;
+        passengers.textContent = text;
     });
     fetch(`/seats/${trip_id}`)
     .then(response => response.text())
     .then(text => {
         let seats = document.getElementById('seats');
-        seats.textContent = "Seats Available: " + text;
+        seats.textContent = text;
     })
     }
 
@@ -27,12 +27,12 @@
         }else{         
             let requestButton = document.getElementById('be_passenger')
             get_passengers(trip_id)
-            if(requestButton.innerHTML.indexOf('List for trip') != -1){
+            if(requestButton.innerHTML.indexOf('LIST FOR TRIP') != -1){
                 swal("Success", "You have succesfully listed for the trip.", "success")
-                requestButton.textContent = 'Unlist from trip'
+                requestButton.textContent = 'UNLIST FROM TRIP'
             }else{
                 swal("Success", "You have succesfully unlisted for the trip.", "success")
-                requestButton.textContent = 'List for trip'
+                requestButton.textContent = 'LIST FOR TRIP'
             }
         }
     });
@@ -55,16 +55,21 @@
 
     {% if trip %}
 
-        <h5>Origin: {{trip.origin}} </h5> <h5>Destination: {{trip.destination}}</h5>
-        <h5>Departure: {{trip.date}} at {{trip.time}} </h5>
-        <h5>Driver: {{trip.driver}}</h5>
-        <h5>Duration: {{trip.est_time}} </h5>
-        <h5><div id="seats">Seats Available: {{trip.avai_seats}}</div></h5>
+        <h5><span class="strong">Origin: </span>{{trip.origin}} </h5> <h5>Destination: {{trip.destination}}</h5>
+        <h5><span class="strong">Departure: </span>{{trip.date}} at {{trip.time}} </h5>
+        <h5><span class="strong">Driver: </span>{{trip.driver}}</h5>
+        <h5><span class="strong">Duration: </span>{{trip.est_time}} </h5>
+        
+        <h5>
+        <span class="strong">Seats Available:</span>
+        <span id="seats">{{trip.avai_seats}}</span>
+        </h5>
+
         {% if trip.passengers %}
             {% if self %}
 
             <h5><div id="passengers">
-                Passengers: {{trip.passengers.count}}
+                <span class="strong">Passengers: </span>{{trip.passengers.count}}
                 <div>
                 {% for passenger in passengers %}
 
@@ -74,9 +79,10 @@
                 </div>
             </div></h5>
             {% else %}
-            <h5><div id="passengers">
-                Passengers: {{trip.passengers.count}}
-            </div></h5>
+            <h5>
+                <span class="strong">Passengers: </span>
+                <span id="passengers">{{trip.passengers.count}}</span>
+            </h5>
             {% endif %}
         {% else %}
             <h5>No passengers yet.</h5>
@@ -89,15 +95,18 @@
         </form>
 
         {% else %}
-            <button name="request" type="submit" id="be_passenger" class="button" onclick="be_passenger({{trip.id}})">
+        <div class="d-flex justify-content-center">
+            <button name="request" type="submit" id="be_passenger" class="button" onclick="be_passenger({{trip.id}})" style="max-width: 200px; min-width: 15%;">
                 {% if is_passenger %}
-                Unlist from trip
+                UNLIST FROM TRIP
                 {% else %}
-                List for trip
+                LIST FOR TRIP
                 {% endif %}
             </button>
+        </div>
+            
         {% endif %}
-        </ul>
+    
     {% else %}
 
         We could't find that trip :(

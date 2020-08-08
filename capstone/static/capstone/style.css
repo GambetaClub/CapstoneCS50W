@@ -1,4 +1,3 @@
-
 @font-face{
   src: url(fonts/SlateForOnePlus-Book.ttf);
   font-family: oneplus;
@@ -13,13 +12,9 @@
   font-family: audrey;
 }
 
-
-.col-auto{
-  padding: 10px;
-  margin: 0 auto;
-}
-
 * {
+  box-shadow: none;
+  outline: 0;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -35,14 +30,20 @@ h1,h2,h3,h4,h5{
 
 h1, h2 {
   padding: 60px;
-  font-family: audrey;
   text-transform:uppercase;
 }
 
 h3,h4,h5,h6{
   padding: 15px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
 }
+
+.strong{
+  display: inline;
+  color: rgb(0, 200, 5);
+  font-weight: 500;
+}
+
 a{
 color: #232323
 }
@@ -56,11 +57,22 @@ li{
   font-family: Arial, Helvetica, sans-serif;
 }
 
+textarea {
+  min-height: 6em;
+  max-height: 50vh;
+  width: 100%;
+}
+
+.bold{
+  font-weight: bold;
+}
+
 .alert{
   margin-top: 90px;
 }
 
 .unread{
+  color: rgb(0, 200, 5);
   font-weight: bold;
 }
 
@@ -95,7 +107,6 @@ width: 220px;
  
 /*Nav Bar*/
 
-
 #menuToggle
 {
   display: block;
@@ -103,7 +114,7 @@ width: 220px;
   top: 50px;
   left: 50px;
   
-  z-index: 1;
+  z-index: 2147483646;
   
   -webkit-user-select: none;
   user-select: none;
@@ -134,7 +145,7 @@ width: 220px;
   cursor: pointer;
   
   opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
+  z-index: 2147483647; /* and place it over the hamburger */
   
   -webkit-touch-callout: none;
 }
@@ -149,7 +160,7 @@ width: 220px;
   background: #cdcdcd;
   border-radius: 3px;
   
-  z-index: 1;
+  z-index: 2147483646;
   
   transform-origin: 4px 0px;
   
@@ -188,6 +199,7 @@ width: 220px;
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
+  z-index: 2147483645;
   
   background: #ededed;
   list-style-type: none;
@@ -203,6 +215,7 @@ width: 220px;
 #menu li{
   padding: 10px 0;
   font-size: 22px;
+  z-index: 2147483647;
 }
 
 #menuToggle input:checked ~ ul{
@@ -263,8 +276,6 @@ padding-bottom: 20px;
 width: 100%;
 display: block;
 }
-
-
 
 /*------------------------------------------------------------------
 [ Input ]*/
@@ -364,14 +375,13 @@ transform: scale(1);
 .ui-form-input-container {
   position: relative;
   font-size: 1rem;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   display: block;
 }
 .ui-form-input {
   padding: 13px 15px;
-  border-radius: 17px;
+  border-radius: 6px;
   border: 2px solid rgb(0, 200, 5);
-  outline: 0;
   width: 100%;
 }
 
@@ -389,18 +399,21 @@ transform: scale(1);
   text-transform: capitalize;
 }
 
+/* ROW CONTAINER */
 
-textarea {
-  min-height: 6em;
-  max-height: 50vh;
-  width: 100%;
+.justify-content-center {
+  padding-top: 20px;
+  gap: 3% !important;
 }
+
+/* /////////////////// */
 
 /* Input */
 
 .form__group {
   position: relative;
-  padding: 17px;
+  padding-top: 30px;
+  padding-bottom: 0px;
   margin-top: 10px;
 }
 
@@ -481,13 +494,11 @@ textarea {
 /* SUBMIT BUTTON*/
 
 button {
-  outline: none !important;
-  box-shadow: none !important;
   outline: none;
   height: 40px;
   text-align: center;
   width: 130px;
-  border-radius: 40px;
+  border-radius: 6px;
   background: #fff;
   border: 2px solid #00c805;
   color: #00c805;
@@ -513,6 +524,7 @@ button:active {
   width: 40px;
   border-color: #bbbbbb;
   border-width: 3px;
+  border-radius: 90px;
   font-size: 0;
   border-left-color: #00c805;
   -webkit-animation: rotating 2s 0.25s linear infinite;
@@ -566,34 +578,42 @@ button:active {
 .bootstrap-select {
   max-width: 400px;
 }
+
 .bootstrap-select .btn{
-  outline: none !important;
-  box-shadow: none !important;
   text-align: center;
   background-color: #fff;
   border-style: solid;
   border: 2px solid rgb(0, 200, 5);
   border-radius: 6px;
   font-weight: 200;
-  padding: 12px 12px;
+  padding: 12px 15px;
   font-size: 16px;
+  color: rgb(0, 200, 5);
+  text-transform: uppercase;
   margin-bottom: 10px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
-.bootstrap-select .dropdown-menu {
-  margin: 15px 0 0;
+
+.bootstrap-select .btn:hover{
+  background-color: rgb(0, 200, 5);
+  color: #fff;
+}
+.bootstrap-select .dropdown-menu{
+  z-index: 2147483647;
 }
 
-.form-control{
-  outline: none !important;
-  box-shadow: none !important;
+.bootstrap-select .dropdown-menu li a.opt {
+  position: relative;
+  padding-left: 2.25em;
 }
 
-.form-control:hover, :active, :focus{
-  outline: none !important;
-  box-shadow: none !important;
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: rgb(0, 200, 5);
+
 }
 
 .form-control:focus {
@@ -604,20 +624,19 @@ button:active {
   box-shadow: none;
 }
 
-.bootstrap-select>.dropdown-toggle.bs-placeholder,
-.bootstrap-select>.dropdown-toggle.bs-placeholder:active,
-.bootstrap-select>.dropdown-toggle.bs-placeholder:focus,
-.bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
-  outline: none !important;
-  box-shadow: none !important;
+.bootstrap-select>.dropdown-toggle.bs-placeholder{
   background-color: #fff !important;
+  text-transform: uppercase !important;
   color: rgb(0, 200, 5) !important;
   content: uppercase !important;
 }
 
+.bootstrap-select>.dropdown-toggle.bs-placeholder:focus{
+  background-color: #fff !important;
+  color: rgb(0, 200, 5) !important
+}
+
 .bootstrap-select .dropdown-toggle .filter-option {
-  height: 40px !important;
-  width: 230px !important;
   border-radius: 6px !important;
   letter-spacing: 1px !important;
   font-size: 12px !important;

@@ -6,11 +6,12 @@
 
             function check(e){
                 e.preventDefault();
-                let selection  = document.getElementById('receiver_select')
-                if(selection.value == ""){
+                let content = document.getElementById('word-count-input').value
+                let selection  = document.getElementById('receiver_select').value
+                if(selection == "" || content == ""){
                     document.getElementById("button").classList.remove("clic");
                     document.getElementById("button").classList.add("button");
-                    swal("Warning", "You have selected no receiver for your message.", "warning");
+                    swal("Warning", "You have to both type something and select a receiver", "warning");
                     return false;
                 }
                 else{
@@ -23,6 +24,7 @@
         .then(response => response.text())
         .then(text => {
             var message_div = document.getElementById(message_id)
+            message_div.querySelector('.unread').classList.toggle('bold')
             message_div.querySelector('.unread').classList.remove('unread')
             message_div.querySelector('.dot').setAttribute("hidden","")
         })
@@ -44,8 +46,8 @@
                     <span class="form-input-label">Message</span>
                 </label>
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-6"> 
+            <div class="d-flex justify-content-center">
+                <div> 
                     <select name="receiver" id="receiver_select" class="selectpicker" data-live-search="true">
                         <option value="" selected disabled>Select a receiver</option>
                         {% for user in users %}
@@ -53,7 +55,7 @@
                         {% endfor %}    
                     </select>
                 </div>
-                <div class="form-group col-md-6">
+                <div>
                     <button id="button" class="button" type="submit">SEND</button>
                 </div>
             </div>
@@ -64,13 +66,13 @@
             {% for message in received_messages %}
             {% if message.read|stringformat:'r' == 'True'%}
                 <li>
-                    <div>{{message.receiver}}: {{message.content}}</div><div class="timestamp">{{message.timestamp}}<div>
+                    <div><span class="bold">{{message.receiver}}:</span> {{message.content}}</div><div class="timestamp">{{message.timestamp}}<div>
                     <hr>
                 </li>
             {% else %}
             <li>
                 <div id="{{message.id}}" onclick="read({{message.id}})"> <span class="dot"></span>
-                    <span class="unread">{{message.receiver}}: {{message.content}}</span>
+                    <span class="unread">{{message.receiver}}:</span> <span> {{message.content}}</span>
                     <div class="timestamp">{{message.timestamp}}</div>
                 </div>
                 <hr>
@@ -88,7 +90,7 @@
         <ul>
             {% for message in sent_messages %}
                 <li>
-                    <div>{{message.receiver}}: {{message.content}}</div> <small>{{message.timestamp}}</small><hr>
+                    <div> <span class="bold">{{message.receiver}}:</span> {{message.content}}</div> <small>{{message.timestamp}}</small><hr>
                 </li>
             {% endfor %}
         </ul>

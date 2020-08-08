@@ -18,9 +18,9 @@
         {% for trip in p_trips %}
         <li>
             <a href="{% url 'trip' trip.id %}">
-             <div><strong>Origin:</strong> {{trip.origin.id_state.state_name}}, {{trip.origin.city}}</div>
-             <div><strong>Destination:</strong> {{trip.destination.id_state.state_name}}, {{trip.destination.city}}</div> 
-             <div><strong>Departure</strong> {{trip.date}} at {{trip.time}}</div>
+             <div><div class="strong">Origin:</div> {{trip.origin.id_state.state_name}}, {{trip.origin.city}}</div>
+             <div><div class="strong">Destination:</div> {{trip.destination.id_state.state_name}}, {{trip.destination.city}}</div> 
+             <div><div class="strong">Departure</div> {{trip.date}} at {{trip.time}}</div>
             </a>
         </li><hr>
         {% endfor %}
@@ -36,9 +36,9 @@
         {% for trip in d_trips %}
         <li>
             <a href="{% url 'trip' trip.id %}">
-             <div><strong>Origin:</strong> {{trip.origin.id_state.state_name}}, {{trip.origin.city}}</div>
-             <div><strong>Destination:</strong> {{trip.destination.id_state.state_name}}, {{trip.destination.city}}</div> 
-             <div><strong>Departure</strong> {{trip.date}} at {{trip.time}}</div>
+             <div><div class="strong">Origin:</div> {{trip.origin.id_state.state_name}}, {{trip.origin.city}}</div>
+             <div><div class="strong">Destination:</div> {{trip.destination.id_state.state_name}}, {{trip.destination.city}}</div> 
+             <div><div class="strong">Departure</div> {{trip.date}} at {{trip.time}}</div>
             </a>
         </li><hr>
         {% endfor %}
