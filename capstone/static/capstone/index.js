@@ -27,8 +27,8 @@ theater
 
 theater
 
-  .addActor('user', { accuracy: 0.6, speed: 0.7 })
-  .addActor('host', { accuracy: 0.8, speed: 0.9 })
+  .addActor('user', { accuracy: 0.7, speed: 0.7 })
+  .addActor('host', { accuracy: 0.9, speed: 0.9 })
   .addScene('host:Welcome!', 300)
   .addScene(' This is PickMeApp!', 1000)
   .addScene('user: Wow, I didn\'t expect that.', 600)

@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Capstone{% endblock %}</title>
+    <script src="https://kit.fontawesome.com/e603cb2c46.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     {% load static %}
     <script src="https://cdn.jsdelivr.net/npm/theaterjs/dist/theater.min.js"></script>
-    <link rel="shortcut icon" href="{% static 'capstone/small_logo.png' %}?{% now 'U' %}">
     <script src="{% static 'capstone/apps.js' %}?{% now 'U' %}"></script>
+    <link rel="shortcut icon" href="{% static 'capstone/small_logo.png' %}?{% now 'U' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'capstone/index.css' %}?{% now 'U' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'capstone/style.css' %}?{% now 'U' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
@@ -23,6 +24,8 @@
           <span></span>
           <span></span>
           <ul id="menu">
+          <a href="{% url 'index' %}"><img class="logo" src="{% static 'capstone/logo.png' %}?{% now 'U' %}" alt=""></a>
+          
             {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'user_trips' %}">Your Trips</a>
