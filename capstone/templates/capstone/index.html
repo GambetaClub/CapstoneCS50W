@@ -1,5 +1,18 @@
 {% extends "capstone/layout.html" %}
 
 {% block body %}
-    TODO
+
+{% load static %}
+<main class="scene">
+    <div class="actor">
+      <div class="actor__prefix">-</div>
+      <div id="luke" class="actor__content"></div>
+    </div>
+  
+    <div class="actor">
+      <div class="actor__prefix">-</div>
+      <div id="vader" class="actor__content"></div>
+    </div>
+
+    <script src="{% static 'capstone/index.js' %}?{% now 'U' %}"></script>
 {% endblock %}

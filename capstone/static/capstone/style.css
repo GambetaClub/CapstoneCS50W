@@ -1,22 +1,17 @@
-@font-face{
-  src: url(fonts/SlateForOnePlus-Book.ttf);
-  font-family: oneplus;
-}
-@font-face{
-  src: url(fonts/AlegreyaSC-Italic.ttf);
-  font-family: heading
+html {
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
 }
 
-@font-face{
-  src: url(fonts/Audrey-Bold.otf);
-  font-family: audrey;
+html::-webkit-scrollbar {
+  width: 0px; /* For Chrome, Safari, and Opera */
 }
-
 * {
   box-shadow: none;
   outline: 0;
   font-family: 'Roboto', sans-serif;
 }
+
 
 body{
   color: rgb(22, 22, 22);
@@ -24,17 +19,19 @@ body{
 }
 
 h1,h2,h3,h4,h5{
+  color: #232323;
   text-align: center;
   font-weight: bold;
 }
 
 h1, h2 {
+  color: #232323;
   padding: 60px;
   text-transform:uppercase;
 }
 
 h3,h4,h5,h6{
-  padding: 15px;
+  padding: 3px;
 
 }
 
@@ -42,6 +39,11 @@ h3,h4,h5,h6{
   display: inline;
   color: rgb(0, 200, 5);
   font-weight: 500;
+}
+
+.d-flex{
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
 }
 
 a{
@@ -104,7 +106,8 @@ background-color: rgb(0, 200, 5)
 #time_picker, #date_picker{
 width: 220px;
 }
- 
+
+
 /*Nav Bar*/
 
 #menuToggle
@@ -246,9 +249,11 @@ background-repeat: no-repeat;;
 .wrap-login100 {
 width: 390px;
 background: #ffffff;
-border-radius: 6px;
+border-radius: 4px;
 position: relative;
 }
+
+/* MAIN PAGE EFFECT*/
 
 
 /*==================================================================
@@ -295,7 +300,7 @@ font-family: Ubuntu-Bold;
 color: #232323;
 line-height: 1.2;
 font-size: 17px;
-border-radius: 6px;
+border-radius: 4px;
 
 
 display: block;
@@ -317,7 +322,7 @@ top: -1px;
 left: -0.8px;
 pointer-events: none;
 border: 3px solid rgb(0, 200, 5);
-border-radius: 6px;
+border-radius: 4px;
 
 visibility: hidden;
 opacity: 0;
@@ -362,7 +367,7 @@ transform: scale(1);
 .ui-input-container {
   background-color: #fff;
   padding: 3rem;
-  border-radius: 8px;
+  border-radius: 6px;
   width: 50%;
   margin: 0 auto;
 }
@@ -380,7 +385,7 @@ transform: scale(1);
 }
 .ui-form-input {
   padding: 13px 15px;
-  border-radius: 6px;
+  border-radius: 4px;
   border: 2px solid rgb(0, 200, 5);
   width: 100%;
 }
@@ -498,7 +503,7 @@ button {
   height: 40px;
   text-align: center;
   width: 130px;
-  border-radius: 6px;
+  border-radius: 4px;
   background: #fff;
   border: 2px solid #00c805;
   color: #00c805;
@@ -584,7 +589,7 @@ button:active {
   background-color: #fff;
   border-style: solid;
   border: 2px solid rgb(0, 200, 5);
-  border-radius: 6px;
+  border-radius: 4px;
   font-weight: 200;
   padding: 12px 15px;
   font-size: 16px;
@@ -637,7 +642,7 @@ button:active {
 }
 
 .bootstrap-select .dropdown-toggle .filter-option {
-  border-radius: 6px !important;
+  border-radius: 4px !important;
   letter-spacing: 1px !important;
   font-size: 12px !important;
   font-weight: bold !important;

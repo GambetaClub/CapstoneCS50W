@@ -44,6 +44,7 @@
 
     <form id="form" action="{% url 'create_trip' %}" method="POST">
         {% csrf_token %}
+        <h5>Origin</h5>
         <div class="d-flex justify-content-center">
             <div>
                 <select id="o_state" name='o_state' class="selectpicker" data-live-search="true" onchange="get_cities(document.querySelector('#o_state').value, 'o_city')" required>
@@ -61,6 +62,7 @@
                 </select>
             </div>
         </div>
+        <h5>Destination</h5>
         <div class="d-flex justify-content-center">
             <div>
                 <select id="d_state" name="d_state" class="selectpicker" data-live-search="true" onchange="get_cities(document.querySelector('#d_state').value,'d_city')" required>
@@ -97,7 +99,7 @@
         <div class="d-flex justify-content-center">
             <div class="form__group">
                 <input id="car_size" name="car_size" type="number" class="form__field" style="width: 220px;" placeholder="Min: 2 Max: 20" required>
-                <label for="car_size" class="form__label">Car Size</label>
+                <label for="car_size" class="form__label">Car seats</label>
             </div>
             <div class="form__group">
                 <input id="seats" name="seats" type="number" class="form__field" style="width: 220px;" placeholder="Min: 1 Max: 19" required>

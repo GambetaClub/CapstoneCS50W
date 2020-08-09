@@ -1,0 +1,70 @@
+@import '//fonts.googleapis.com/css?family=Cutive';
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 14px;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Cutive", serif;
+	font-size: 1rem;
+	line-height: 1.4;
+	color: #222;
+	background-color: #fff;
+	transition: background-color 150ms ease-out,
+ color 150ms ease-out;
+}
+
+.dark {
+	color: #ededed;
+	background-color: #222;
+}
+
+.scene {
+	padding: 6rem 2rem;
+  max-width: 800px;
+  white-space: pre-wrap;
+	margin: 0 auto;
+}
+
+.actor {
+	font-size: 2.8rem;
+	display: flex;
+	margin-bottom: 2rem;
+}
+
+.actor:last-of-type {
+	margin-bottom: 6rem;
+}
+
+.actor__content {
+	flex-grow: 1;
+}
+
+@keyframes blink {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.actor__content--typing::after {
+	content: '|';
+	animation: blink 500ms infinite;
+}
