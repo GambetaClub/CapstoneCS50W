@@ -14,8 +14,13 @@ html::-webkit-scrollbar {
 
 
 body{
-  color: rgb(22, 22, 22);
-  background-color: #ffffff;
+	font-family: "Cutive", serif;
+	font-size: 1rem;
+	line-height: 1.4;
+	color: #222;
+	background-color: #fff;
+	transition: background-color 150ms ease-out,
+ color 150ms ease-out;
 }
 
 h1,h2,h3,h4,h5{
@@ -108,6 +113,91 @@ background-color: rgb(0, 200, 5)
 width: 220px;
 }
 
+/* SOCIAL BUTTONS */
+
+/* Wrapper */
+.icon-button {
+	background-color: rgb(204, 204, 204);
+	border-radius: 3.6rem;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 2.0rem;
+	height: 3.6rem;
+	line-height: 3.6rem;
+	margin: 0 5px;
+	position: relative;
+	text-align: center;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+	width: 3.6rem;
+}
+
+/* Circle */
+.icon-button span {
+	border-radius: 0;
+	display: block;
+	height: 0;
+	left: 50%;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	-webkit-transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+	     -o-transition: all 0.3s;
+	        transition: all 0.3s;
+	width: 0;
+}
+.icon-button:hover span {
+	width: 3.6rem;
+	height: 3.6rem;
+	border-radius: 3.6rem;
+	margin: -1.8rem;
+}
+.github span {
+	background-color: black;
+}
+.instagram span {
+	background-color: #E1306C;
+}
+.google-plus span {
+	background-color: #db5a3c;
+}
+
+/* Icons */
+.icon-button i {
+	background: none;
+	color: white;
+	height: 3.6rem;
+	left: 0;
+	line-height: 3.6rem;
+	position: absolute;
+	top: 0;
+	-webkit-transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+	     -o-transition: all 0.3s;
+	        transition: all 0.3s;
+	width: 3.6rem;
+	z-index: 10;
+}
+.icon-button .fa-github{
+	color: black;
+}
+.icon-button .fa-instagram{
+	color: #E1306C;
+}
+.icon-button .icon-google-plus {
+	color: #db5a3c;
+}
+.icon-button:hover .fab,
+.icon-button:hover .icon-instagram,
+.icon-button:hover .icon-google-plus {
+	color: white;
+}
+
+/*///////////////////////*/
+
 
 /*Nav Bar*/
 
@@ -116,7 +206,7 @@ width: 220px;
   display: block;
   position: relative;
   top: 50px;
-  left: 50px;
+  left: 48px;
   
   z-index: 2147483646;
   
@@ -205,7 +295,7 @@ width: 220px;
 
 #menu{
   position: absolute;
-  width: 260px;
+  width: 270px;
   height: 115vh;
   margin: -100px 0 0 -50px;
   padding: 50px;
