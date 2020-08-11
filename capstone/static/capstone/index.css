@@ -6,7 +6,6 @@
 	box-sizing: inherit;
 }
 
-
 .dark {
 	color: #ededed;
 	background-color: #222;
@@ -14,8 +13,8 @@
 
 .scene {
 	padding: 6rem 2rem;
-  max-width: 800px;
-  white-space: pre-wrap;
+	max-width: 800px;
+	white-space: p;
 	margin: 0 auto;
 }
 

@@ -14,13 +14,14 @@ html::-webkit-scrollbar {
 
 html,
 body {
+  height: 100%;
 	padding: 0;
 	margin: 0;
 }
 
 html {
-	font-size: 14px;
-	height: 100%;
+  font-size: 14px;
+  width: 95%;
 	box-sizing: border-box;
 }
 
@@ -48,9 +49,54 @@ h1, h2 {
 
 h3,h4,h5,h6{
   padding: 3px;
-
 }
 
+a{
+  color: #232323
+}
+  
+a:focus, a:hover{
+color: #232323;
+text-decoration: underline;
+}
+
+li{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+textarea{
+  min-height: 6em;
+  max-height: 50vh;
+  width: 100%;
+}
+
+/* FOOTER */
+
+.page-wrapper{
+  min-height: 100%;
+}
+
+.footer {
+  background-color: black;
+  color: #fff;
+  height: 200px;
+  width: 100vw;
+  position: relative;
+}
+
+.footer .footer-bottom {
+  background-color: #232323;
+  color: whitesmoke;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding-top: 20px;
+}
+
+/*////////////////////////////////*/
 
 .strong{
   display: inline;
@@ -61,25 +107,6 @@ h3,h4,h5,h6{
 .d-flex{
   padding-top: 5px !important;
   padding-bottom: 5px !important;
-}
-
-a{
-color: #232323
-}
-
-a:focus, a:hover{
-color: #232323;
-text-decoration: underline;
-}
-
-li{
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-textarea {
-  min-height: 6em;
-  max-height: 50vh;
-  width: 100%;
 }
 
 .bold{
@@ -111,11 +138,11 @@ textarea {
   color: rgb(92, 92, 92);
 }
 
-.swal-overlay {
+.swal-overlay{
 background-color: rgba(12, 12, 12, 0.25);
 }
 
-.swal-button {
+.swal-button{
 background-color: rgb(0, 200, 5)
 }
 
@@ -127,8 +154,8 @@ width: 220px;
 /* SOCIAL BUTTONS */
 
 /* Wrapper */
-.icon-button {
-	background-color: rgb(204, 204, 204);
+.icon-button{
+	background-color: rgb(255, 255, 255);
 	border-radius: 3.6rem;
 	cursor: pointer;
 	display: inline-block;
