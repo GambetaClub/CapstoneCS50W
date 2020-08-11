@@ -11,10 +11,11 @@
     </div>
     {% endif %}
     
-    <h1>Trips</h1>
+    <h3>Search a Trip</h3>
 
     <form id="form" action="{% url 'search_trip' %}" method="GET">
         {% csrf_token %}
+        <h4>From</h4>
             <div class="d-flex justify-content-center">
                 <div class="form__group">
                     <input type="search" class="form__field" placeholder="State" name="o_state" style="width: 430px;"/>
@@ -25,7 +26,8 @@
                     <label for="o_city" class="form__label">City</label>  
                 </div>
             </div>
-            <div class="d-flex justify-content-center">
+        <h4>To</h4>
+            <div class="d-flex justify-content-center" >
                 <div class="form__group">
                     <input type="search" class="form__field" placeholder="State" name="d_state" style="width: 430px;"/>
                     <label for="d_state" class="form__label">State</label>  
@@ -41,9 +43,10 @@
                 </div>  
             </div>
     </form>
-
+    <br>
+    <br>
     {% if trips %}
-    <h6>Trips Available:</h6>
+    <h3>Trips Available</h3>
     <ul>
     {% for trip in trips %}
         <li>
@@ -55,7 +58,7 @@
             </a>
         </li><hr>
     {% endfor %}
-
+    
     {% else %}
 
     No results
@@ -63,7 +66,7 @@
     </ul>
     {% endif %}
 
-
+    <p class="low">All trip times are syncronized with UTC Time</p>
 
 
 {% endblock %}

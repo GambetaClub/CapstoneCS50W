@@ -70,7 +70,8 @@ def register(request):
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "capstone/register.html")
-
+    
+@login_required
 def set_timezone(request):
     if request.method == 'POST':
         request.session['django_timezone'] = request.POST['timezone']
@@ -176,9 +177,7 @@ def create_trip(request):
         driver = request.user
         new_trip = Trip(driver=driver, origin=o_city_obj, destination=d_city_obj, date=date, time=time, est_time=est_time, car_size=car_size, avai_seats=avai_seats)
         new_trip.save()
-        return render(request, "capstone/success.html", {
-            "message": new_trip
-        })
+        return redirect(reverse("trips"))
     else:
         return render(request, "capstone/create_trip.html", {
             "states": UsStates.objects.all()

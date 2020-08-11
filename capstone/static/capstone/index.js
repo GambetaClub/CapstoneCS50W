@@ -1,12 +1,12 @@
 var theater = theaterJS({
     "minSpeed": {
       "erase": 60,
-      "type": 130
+      "type": 100
     },
   
     "maxSpeed": {
       "erase": 60,
-      "type": 40
+      "type": 5
     }
 })
 
@@ -36,7 +36,7 @@ theater
   .addScene('host: Yeah, I know.', 700,' It\'s the power of coding.', 500)
   .addScene('user: What is this page for?', 730, ' Now I\'m curious 🤔',800 ,'Could you tell me?', 1200)
   .addScene('user:', 180)
-  .addScene('host: This page was made by Mariano Ja')
+  .addScene('host: This page was made by Mariano Ja...')
   .addScene('user: Briefly, please.', 1500)
   .addScene('host: Okay.', 700)
   .addScene('host: This page is intended to help people find others that are traveling to the same place with the goal of sharing the same car.', 400)
@@ -48,6 +48,6 @@ theater
   .addScene('help the environment.', 830)
   .addScene(-21)
   .addScene('meet people.', 790)
-  .addScene(' Apart from that, there are some places that don\'t transportation services.', 750)
+  .addScene(' Apart from that, there are some places that don\'t have transportation services.', 750)
   .addScene('host: You help and can be helped.', 1500)
   .addScene('user: I guess you are right.', 600,' I will try it.')

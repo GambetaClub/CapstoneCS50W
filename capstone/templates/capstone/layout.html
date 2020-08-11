@@ -28,32 +28,36 @@
           
             {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'user_trips' %}">Your Trips</a>
+                    <a class="nav-link" href="{% url 'user_trips' %}">Your Trips<i class="fas fa-car"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'trips' %}">Trips</a>
+                    <a class="nav-link" href="{% url 'trips' %}">Trips<i class="fas fa-suitcase-rolling"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'create_trip' %}">Create Trip</a>
+                    <a class="nav-link" href="{% url 'create_trip' %}">Create Trip<i class="fas fa-plus-square"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'messages' %}">Messages</a>
+                    <a class="nav-link" href="{% url 'messages' %}">Messages<i class="fas fa-envelope"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                    <a class="nav-link" href="{% url 'set_timezone' %}">Settings<i class="fas fa-cog"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Log Out<i class="fas fa-sign-out-alt"></i></a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Sign in</a>
+                    <a class="nav-link" href="{% url 'login' %}">Sign in<i class="fas fa-sign-in-alt"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    <a class="nav-link" href="{% url 'register' %}">Register<i class="fas fa-user-plus"></i></a>
                 </li>
             {% endif %}
           </ul>
         </div>
       </nav>
     <div class="page-wrapper">
+        {% load tz %}
         {% block body %}
         
         {% endblock %}
@@ -61,15 +65,22 @@
     
     <div class="footer">
         <div class="footer-content">
+
             <br>
             <br>
+            <div class="footer-desc">
+                This website was made for completing Harvard CS50W course.
+                This is the last project of the course called Capstone. For getting 
+                acces to the private repository of this project you can send me an e-mail or direct message by 
+                <a href="https://www.instagram.com/mariijalif" target="_blank">Instagram</a>.
+            </div>
             <div class="d-flex justify-content-center">
-                <a href="https://github.com/GambetaClub" class="icon-button github"><i class="fab fa-github"></i><span></span></a>
-                <a href="https://www.instagram.com/mariijalif/?hl=es" class="icon-button instagram"><i class="fab fa-instagram"></i><span></span></a>
+                <a href="https://github.com/GambetaClub" class="icon-button github" target="_blank"><i class="fab fa-github"></i><span></span></a>
+                <a href="https://www.instagram.com/mariijalif" class="icon-button instagram" target="_blank"><i class="fab fa-instagram"></i><span></span></a>
             </div>
         </div>
         <div class="footer-bottom">
-            @marigyt.maj@gmail.com | Designed by Mariano Augusto Jalif
+            <i class="far fa-envelope"></i>  @marigyt.maj@gmail.com | Designed by Mariano Augusto Jalif
         </div>
     </div>
     

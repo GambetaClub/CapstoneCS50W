@@ -32,11 +32,13 @@
 
     </script>
 
-    {% if message %}
-    <div class="alert alert-danger" role="alert">
-        {{message}}
-    </div>
-    {% endif %}
+     {% if message %}
+     <div class="alert alert-danger" role="alert">
+         {{message}}
+     </div>
+     {% endif %}
+
+    <h2>Messages</h2>
 
     <form id="message_form" action="{% url 'send_message' %}" method="POST" onsubmit="return check(event)">
         {% csrf_token %}
@@ -60,6 +62,7 @@
                 </div>
             </div>
     </form>
+    <br>
     {% load tz %}
     <h5>Received messages</h5>
     {% if received_messages %}
@@ -68,7 +71,6 @@
             {% if message.read|stringformat:'r' == 'True'%}
                 <li>
                     <div><span class="bold">{{message.receiver}}:</span> {{message.content}}</div>
-                    {% load tz %}
                     <div class="timestamp">{{ message.timestamp }}</div>
                     <hr>
                 </li>
@@ -76,7 +78,6 @@
             <li>
                 <div id="{{message.id}}" onclick="read({{message.id}})"> <span class="dot"></span>
                     <span class="unread">{{message.receiver}}:</span> <span> {{message.content}}</span>
-                    {% load tz %}
                     <div class="timestamp">{{ message.timestamp }}</div>
                 </div>
                 <hr>
@@ -99,7 +100,7 @@
             {% endfor %}
         </ul>
     {% else %}
-        <h6 class="heading">No messages.</h6>
+        <h6 class="heading">No messages.</h6><br><br>
     {% endif %}
     
 

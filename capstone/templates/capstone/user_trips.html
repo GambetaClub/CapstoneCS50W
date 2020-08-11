@@ -10,7 +10,7 @@
     </div>
     {% endif %}
     
-    <h1>Your Trips</h1>
+    <h2>Your Trips</h2>
 
     {% if p_trips %}
         <h6>Trips in which you are a passenger.</h6>
@@ -26,12 +26,12 @@
         {% endfor %}
         </ul>
     {% else %}
-
-        <h5>You are not a passener for any trip yet.</h5>
+        <h5 class="heading">You are not a passener for any trip yet.</h5>
+        <br><br>
     {% endif %}
 
     {% if d_trips %}
-        <h6>Trip in chich you are a driver:</h6>
+        <h5>Trips in chich you are a driver:</h5>
         <ul>
         {% for trip in d_trips %}
         <li>
@@ -44,8 +44,8 @@
         {% endfor %}
         </ul>
     {% else %}
-
-        <h5>You are not the driver for any trip yet.</h5>
+        <br><br>
+        <h5 class="heading">You are not the driver for any trip yet.</h5>
 
     {% endif %}
 
