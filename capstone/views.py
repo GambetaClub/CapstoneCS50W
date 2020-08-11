@@ -1,16 +1,15 @@
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect,  HttpResponseForbidden
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from collections import namedtuple
 from django.contrib.auth.decorators import login_required
-import json
 from django.core import serializers
-from django.http import JsonResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import permission_required
 from datetime import date
 from .models import User, UsStates, UsCities, Trip, Message
+import pytz
 
 def namedtuplefetchall(cursor):
     "Return all rows from a cursor as a namedtuple"
@@ -71,6 +70,13 @@ def register(request):
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "capstone/register.html")
+
+def set_timezone(request):
+    if request.method == 'POST':
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('/')
+    else:
+        return render(request, 'capstone/set_timezone.html', {'timezones': pytz.common_timezones})
 
 @login_required
 def messages(request):

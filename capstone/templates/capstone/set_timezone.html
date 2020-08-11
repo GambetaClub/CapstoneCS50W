@@ -1,0 +1,26 @@
+{% extends "capstone/layout.html" %}
+
+{% block body %}
+
+{% load tz %}
+{% get_current_timezone as TIME_ZONE %}
+
+<h4 class="heading">Settings</h4>
+
+<form action="{% url 'set_timezone' %}" method="POST">
+    {% csrf_token %}
+    <h5>Select timezone</h5>
+    <div class="d-flex justify-content-center">
+    <select name="timezone" class="selectpicker" data-live-search="true">
+        {% for tz in timezones %}
+        <option value="{{ tz }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ tz }}</option>
+        {% endfor %}
+    </select>
+    </div>
+    <div class="d-flex justify-content-center">
+    <button type="submit" class="button">Set</button>
+    </div>
+</form>
+
+
+{% endblock %}

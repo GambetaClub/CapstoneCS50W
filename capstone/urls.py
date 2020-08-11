@@ -7,6 +7,7 @@ urlpatterns = [
     path("login", views.login_view, name="login"),
     path("logout", views.logout_view, name="logout"),
     path("register", views.register, name="register"),
+    path("set_timezone", views.set_timezone, name="set_timezone"),
     path("trips", views.trips, name="trips"),
     path("create", views.create_trip, name="create_trip"),
     path("get_cities/<int:state_id>", views.get_cities, name="get_cities"),

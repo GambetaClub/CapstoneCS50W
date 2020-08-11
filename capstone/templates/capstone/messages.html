@@ -60,20 +60,24 @@
                 </div>
             </div>
     </form>
+    {% load tz %}
     <h5>Received messages</h5>
     {% if received_messages %}
         <ul>
             {% for message in received_messages %}
             {% if message.read|stringformat:'r' == 'True'%}
                 <li>
-                    <div><span class="bold">{{message.receiver}}:</span> {{message.content}}</div><div class="timestamp">{{message.timestamp}}<div>
+                    <div><span class="bold">{{message.receiver}}:</span> {{message.content}}</div>
+                    {% load tz %}
+                    <div class="timestamp">{{ message.timestamp }}</div>
                     <hr>
                 </li>
             {% else %}
             <li>
                 <div id="{{message.id}}" onclick="read({{message.id}})"> <span class="dot"></span>
                     <span class="unread">{{message.receiver}}:</span> <span> {{message.content}}</span>
-                    <div class="timestamp">{{message.timestamp}}</div>
+                    {% load tz %}
+                    <div class="timestamp">{{ message.timestamp }}</div>
                 </div>
                 <hr>
             </li>
@@ -81,7 +85,7 @@
             {% endfor %}
         </ul>
     {% else %}
-        <strong>No messages :(</strong>
+        <h6 class="heading">No messages.</h6>
         <hr> 
     {% endif %}
 
@@ -95,7 +99,7 @@
             {% endfor %}
         </ul>
     {% else %}
-        No messages
+        <h6 class="heading">No messages.</h6>
     {% endif %}
     
 
