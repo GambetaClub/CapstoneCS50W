@@ -66,31 +66,39 @@ def register(request):
                 "message": "Username already taken."
             })
         login(request, user)
-        return HttpResponseRedirect(reverse("extra_user_info"))
+        return HttpResponseRedirect(reverse("user_extra_info"))
     else:
         return render(request, "capstone/register.html")
 
 
 @login_required
-def extra_user_info(request):
+def user_extra_info(request):
     if request.method == 'POST':
+        
         f_name = request.POST["first_name"]
         l_name = request.POST["last_name"]
-        about = request.POST["about"]
-        cell_number = request.POST["cell_number"]
+        phone = request.POST["phone"]
+        instagram = request.POST["instagram"]
+        profession = request.POST["profession"]
+        interests = request.POST["interests"]
+        
         user = User.objects.get(username=request.user.username)
-        if f_name is None or f_name != "":
+        if f_name is not None or f_name != '':
             user.first_name = f_name
-        if l_name is None or l_name != "":
+        if l_name is not None or l_name != '':
             user.last_name = l_name
-        if about is None or about != "":
-            user.about = about
-        if cell_number is None or cell_number != "":
-            user.cell_number = cell_number
+        if phone is not None or phone != '':
+            user.phone = phone
+        if instagram is not None or instagram != '':
+            user.instagram = instagram   
+        if profession is not None or profession != '':
+            user.profession = profession    
+        if interests is not None or interests != '':
+            user.interests = interests
         user.save()
         return HttpResponseRedirect(reverse("index"))
     else:
-        return render(request, "capstone/extra_user_info.html")
+        return render(request, "capstone/user_extra_info.html")
 
     
 @login_required

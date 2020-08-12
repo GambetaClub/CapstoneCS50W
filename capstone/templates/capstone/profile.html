@@ -10,7 +10,7 @@
 <div class="wrapper">
     <div class="left">
         <img src="https://i.imgur.com/cMy8V5j.png" alt="user" width="100">
-        <h4>{{user.first_name}} {{user.last_name}} </h4>
+        <h4>{{user.first_name}} {{user.last_name}}</h4>
          <p>{{user.profession}}</p>
     </div>
     <div class="right">
@@ -29,7 +29,7 @@
         </div>
       
       <div class="projects">
-            <h3>Goals</h3>
+            <h3>About me</h3>
             <div class="projects_data">
                  <div class="data">
                     <h4>Recent</h4>
@@ -37,7 +37,7 @@
                  </div>
                  <div class="data">
                    <h4>Interests</h4>
-                    <p>{{user.about}}</p>
+                    <p>{{user.interests}}</p>
               </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
         <div class="social_media">
             <ul>
             {% if user.instagram %}
-              <li><a href="https://www.instagram.com/" + {{user.instagram}}><i class="fab fa-instagram"></i></a></li>
+                <li><a id="instagram" target="_blank"><i class="fab fa-instagram"></i></a></li>
             {% endif %}
             </ul>
       </div>
@@ -53,12 +53,17 @@
 </div>
 
 <script>
-    var inst_username = {{user.username}};
-    fetch(`https://www.instagram.com/` + inst_username + `/?__a=1`)
+    var inst_username = "{{user.instagram}}";
+
+    document.getElementById('instagram').href = 'https://www.instagram.com/' + inst_username;
+    console.log(document.getElementById('instagram').href);
+    console.log(document.getElementById('instagram'));
+
+    /*fetch(`https://www.instagram.com/` + inst_username + `/?__a=1`)
     .then(response => response.json())
     .then(data => {
         console.log(data)
-    })
+    })*/
 
 </script>
 

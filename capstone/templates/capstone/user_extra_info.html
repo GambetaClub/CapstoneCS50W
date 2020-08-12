@@ -1,0 +1,60 @@
+{% extends "capstone/layout.html" %}
+
+{% block body %}
+
+    {% if message %}
+    <div class="alert alert-danger" role="alert">
+        {{message}}
+    </div>
+    {% endif %}
+    
+    <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-50 p-b-90">
+				<form class="login100-form validate-form flex-sb flex-w" action="{% url 'user_extra_info' %}" method="post">
+                    {% csrf_token %}
+					<span class="login100-form-title p-b-51">
+						Personal Information
+					</span>
+					<div class="wrap-input100 validate-input m-b-16">
+						<input class="input100" type="text" name="first_name" placeholder="First Name">
+						<span class="focus-input100"></span>
+                    </div>
+                    
+					<div class="wrap-input100 validate-input m-b-16">
+						<input class="input100" type="text" name="last_name" placeholder="Last Name">
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input m-b-16" >
+						<input class="input100" type="text" name="phone" placeholder="Phone Number">
+						<span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-16" >
+						<input class="input100" type="text" name="instagram" placeholder="Instagram Username">
+						<span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-16" >
+						<input class="input100" type="text" name="profession" placeholder="Profession">
+						<span class="focus-input100"></span>
+                    </div>
+                    
+                    <div class="wrap-input100 validate-input m-b-16" >
+						<input class="input100" type="text" name="interests" placeholder="Interests">
+						<span class="focus-input100"></span>
+                    </div>
+					
+					<div class="container-login100-form-btn m-t-17">
+						<button id="button" class="button" type="submit">
+							REGISTER
+						</button>
+					</div>
+                    Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+				</form>
+			</div>
+		</div>
+    </div>
+    
+{% endblock %}

@@ -9,7 +9,12 @@ activate(settings.TIME_ZONE)
 
 class User(AbstractUser):
     pass
-
+    interests = models.CharField(max_length=800, null=True)
+    profession =  models.CharField(max_length=400, null=True)
+    phone = models.CharField(max_length=14, null=True)
+    instagram = models.CharField(max_length=40, null=True)
+    
+    
     def __str__(self):
         return f"{self.username}"
 

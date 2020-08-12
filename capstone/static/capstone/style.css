@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
 html {
   scrollbar-width: none; /* For Firefox */
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
@@ -84,7 +86,9 @@ textarea{
   position: relative;
 }
 
+
 .footer .footer-bottom {
+  font-family: 'Josefin Sans', sans-serif !important;
   background-color: #232323;
   color: whitesmoke;
   height: 50px;
@@ -97,6 +101,7 @@ textarea{
 }
 
 .footer-desc{
+ font-family: 'Roboto', sans-serif !important;
  padding-left: 30px;
  padding-right: 30px;
 }
@@ -273,6 +278,7 @@ width: 220px;
 }
 
 #menuToggle a{
+  font-family: 'Roboto', sans-serif !important;
   left: 5px;
   text-align: center ;
   text-decoration: none;
@@ -361,7 +367,7 @@ width: 220px;
 #menu{
   position: absolute;
   width: 270px;
-  height: 108.5vh;
+  height: 108vh;
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
