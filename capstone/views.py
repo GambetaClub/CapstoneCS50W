@@ -49,7 +49,6 @@ def register(request):
     if request.method == "POST":
         username = request.POST["username"]
         email = request.POST["email"]
-
         # Ensure password matches confirmation
         password = request.POST["password"]
         confirmation = request.POST["confirmation"]
@@ -67,9 +66,32 @@ def register(request):
                 "message": "Username already taken."
             })
         login(request, user)
-        return HttpResponseRedirect(reverse("index"))
+        return HttpResponseRedirect(reverse("extra_user_info"))
     else:
         return render(request, "capstone/register.html")
+
+
+@login_required
+def extra_user_info(request):
+    if request.method == 'POST':
+        f_name = request.POST["first_name"]
+        l_name = request.POST["last_name"]
+        about = request.POST["about"]
+        cell_number = request.POST["cell_number"]
+        user = User.objects.get(username=request.user.username)
+        if f_name is None or f_name != "":
+            user.first_name = f_name
+        if l_name is None or l_name != "":
+            user.last_name = l_name
+        if about is None or about != "":
+            user.about = about
+        if cell_number is None or cell_number != "":
+            user.cell_number = cell_number
+        user.save()
+        return HttpResponseRedirect(reverse("index"))
+    else:
+        return render(request, "capstone/extra_user_info.html")
+
     
 @login_required
 def set_timezone(request):
@@ -78,6 +100,18 @@ def set_timezone(request):
         return redirect('/')
     else:
         return render(request, 'capstone/set_timezone.html', {'timezones': pytz.common_timezones})
+
+@login_required
+def profile(request, user_username):
+    user = User.objects.get(username=user_username)
+    if user is None:
+        return render(request, "capstone/error.html", {
+        "message": "That user doesn't not exist in the website. Maybe is your imagination."
+    })
+    return render(request, "capstone/profile.html", {
+        "user": user
+    })
+
 
 @login_required
 def messages(request):
