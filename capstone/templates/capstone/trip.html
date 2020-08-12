@@ -55,8 +55,8 @@
 
     {% if trip %}
 
-        <h5><span class="strong">Origin: </span>{{trip.origin}} </h5> 
-        <h5><span class="strong">Destination: {{trip.destination}}</h5>
+        <h5><span class="strong">Origin: </span>{{trip.origin.city}},  {{trip.destination.id_state.state_name}}</h5> 
+        <h5><span class="strong">Destination: </span>{{trip.destination.city}}, {{trip.destination.id_state.state_name}} </h5>
         <h5><span class="strong">Departure: </span>{{trip.date}} at {{trip.time}} </h5>
         <h5><span class="strong">Driver: </span>{{trip.driver}}</h5>
         <h5><span class="strong">Duration: </span>{{trip.est_time}} </h5>
@@ -92,7 +92,9 @@
         {% if self %}
         <form action="{% url 'delete_trip' trip.id %}" method="POST">
             {% csrf_token %}
-            <button name="request" type="submit" id="request_button" class="button">Delete Trip</button>
+            <div class="d-flex justify-content-center">
+            <button name="request" type="submit" id="request_button" class="button">DELETE TRIP</button>
+            </div>
         </form>
 
         {% else %}
