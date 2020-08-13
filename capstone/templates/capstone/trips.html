@@ -11,7 +11,7 @@
     </div>
     {% endif %}
     
-    <h3>Search a Trip</h3>
+    <h3>Search a Trip <i class="fas fa-search"></i></h3>
 
     <form id="form" action="{% url 'search_trip' %}" method="GET">
         {% csrf_token %}
@@ -46,7 +46,7 @@
     <br>
     <br>
     {% if trips %}
-    <h3>Trips Available</h3>
+    <h3>Trips Available <i class="fas fa-suitcase"></i></h3>
     <ul>
     {% for trip in trips %}
         <li>

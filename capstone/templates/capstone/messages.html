@@ -25,6 +25,7 @@
         .then(text => {
             var message_div = document.getElementById(message_id)
             message_div.querySelector('.unread').classList.toggle('bold')
+            message_div.querySelector('.ella').classList.toggle('test')
             message_div.querySelector('.unread').classList.remove('unread')
             message_div.querySelector('.dot').setAttribute("hidden","")
         })
@@ -70,15 +71,15 @@
             {% for message in received_messages %}
             {% if message.read|stringformat:'r' == 'True'%}
                 <li>
-                    <div><span class="bold">{{message.receiver}}:</span> {{message.content}}</div>
+                    <div><span class="bold"><a href="{% url 'profile' message.author.username %}">{{message.author}}</a></span>: {{message.content}}</div>
                     <div class="timestamp">{{ message.timestamp }}</div>
                     <hr>
                 </li>
             {% else %}
             <li>
                 <div id="{{message.id}}" onclick="read({{message.id}})"> <span class="dot"></span>
-                    <span class="unread">{{message.receiver}}:</span> <span> {{message.content}}</span>
-                    <div class="timestamp">{{ message.timestamp }}</div>
+                    <span class="unread"><a href="{% url 'profile' message.author.username %}">{{message.author}}</a><span class="ella">: {{message.content}}
+                    <div class="timestamp">{{ message.timestamp }}</div></span></span>
                 </div>
                 <hr>
             </li>
@@ -95,7 +96,7 @@
         <ul>
             {% for message in sent_messages %}
                 <li>
-                    <div> <span class="bold">{{message.receiver}}:</span> {{message.content}}</div> <div class="timestamp">{{ message.timestamp }}</div><hr>
+                    <div> <span class="bold"><a href="{% url 'profile' message.receiver.username %}">{{message.receiver}}</a></span> {{message.content}}</div> <div class="timestamp">{{ message.timestamp }}</div><hr>
                 </li>
             {% endfor %}
         </ul>
@@ -103,7 +104,7 @@
         <h6 class="heading">No messages.</h6><br><br>
     {% endif %}
     
-
+    <p class="low">Click to read message as read and refresh to load new messages.</p>
 
 
 

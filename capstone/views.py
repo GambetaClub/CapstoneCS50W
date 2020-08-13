@@ -152,15 +152,15 @@ def trips(request):
     
 def user_trips(request):
    user = request.user
-   trips = Trip.objects.all().order_by('-id')
+   trips = Trip.objects.filter(date__gte=date.today()).order_by('-id')
    return render(request,"capstone/user_trips.html", {
-       "p_trips": trips.filter(date__gte=date.today()).filter(passengers=user),
-       "d_trips": Trip.objects.filter(date__gte=date.today()).filter(driver=user)
+       "p_trips": trips.filter(passengers=user),
+       "d_trips":  trips.filter(driver=user)
    })
 
     
 def search_trip(request):
-    qs = Trip.objects.all().order_by('-id')
+    qs = Trip.objects.filter(date__gte=date.today()).order_by('-id')
     
     o_state = request.GET.get('o_state')
     o_city = request.GET.get('o_city')
@@ -178,7 +178,7 @@ def search_trip(request):
         
     if d_city != '' and d_city is not None:
         qs = qs.filter(destination__city__icontains=d_city)
-        
+    
     return render(request, "capstone/trips.html", {
         "trips": qs
     })
