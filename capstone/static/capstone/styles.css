@@ -229,7 +229,8 @@ textarea {
 }
 
 .instagram span {
-  background-color: #E1306C;
+  background: #405de6;
+  background: linear-gradient(-135deg, #405de6 0%, #5851db 10%, #833ab4 17%, #c13584 27%, #e1306c 47%, #fd1d1d 64%, #f56040 77%, #f77737 86%, #fcaf45 96%, #ffdc80 100%);
 }
 
 .google-plus span {

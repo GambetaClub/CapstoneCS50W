@@ -12,6 +12,10 @@ body{
    background-color: #fff;
 }
 
+h3{
+  color: rgb(0, 200, 5);
+}
+
 .wrapper{
   position: absolute;
   top: 50%;
@@ -26,13 +30,10 @@ body{
   color: #fff;
 }
 
-h4 > i{
-  padding-left: 5px;
-}
 
 .wrapper .left{
   width: 35%;
-  background: linear-gradient(to right, rgb(0, 200, 5), rgb(61, 219, 67));
+  background: linear-gradient(to right, #242424, #313131);
   padding: 30px 25px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -91,13 +92,13 @@ h4 > i{
 
 .wrapper .right .info_data .data h4,
 .wrapper .right .projects_data .data h4{
-    color: #353c4e;
+    color: rgb(0, 200, 5);
     margin-bottom: 5px;
 }
 
 .wrapper .right .info_data .data p,
 .wrapper .right .projects_data .data p{
-  font-size: 13px;
+  font-size: 130%;
   margin-bottom: 10px;
   color: #919aa3;
 }
@@ -109,7 +110,8 @@ h4 > i{
 .wrapper .social_media ul li{
   width: 45px;
   height: 45px;
-  background: linear-gradient(to right,rgb(0, 200, 5),rgb(61, 219, 67));
+  background: rgb(64,93,230);
+  background: linear-gradient(-135deg, rgba(64,93,230,1) 0%, rgba(88,81,219,1) 5%, rgba(131,58,180,1) 13%, rgba(193,53,132,1) 27%, rgba(225,48,108,1) 47%, rgba(253,29,29,1) 64%, rgba(245,96,64,1) 77%, rgba(247,119,55,1) 86%, rgba(252,175,69,1) 93%, rgba(255,220,128,1) 100%);
   margin-right: 10px;
   border-radius: 5px;
   text-align: center;
@@ -122,4 +124,18 @@ h4 > i{
   padding-top: 4px;
   display: block;
   font-size: 30px;
+}
+
+/* Icon correction */
+
+/* Titles */
+
+h4 > i {
+  padding-left: 6px;
+}
+
+/*Social media */
+
+li > a {
+  padding-left: 6px;
 }
