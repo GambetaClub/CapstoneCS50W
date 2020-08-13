@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap");
+/* COLORS */
+/*FONT COLORS */
 html {
   scrollbar-width: none;
   /* For Firefox */
@@ -35,20 +37,20 @@ body {
   font-family: "Cutive", serif;
   font-size: 1rem;
   line-height: 1.4;
-  color: #232323;
-  background-color: #fff;
+  color: #242424;
+  background-color: white;
   -webkit-transition: background-color 150ms ease-out, color 150ms ease-out;
   transition: background-color 150ms ease-out, color 150ms ease-out;
 }
 
 h1, h2, h3, h4, h5 {
-  color: #232323;
+  color: #242424;
   text-align: center;
   font-weight: bold;
 }
 
 h1, h2 {
-  color: #232323;
+  color: #242424;
   padding: 60px;
   text-transform: uppercase;
 }
@@ -58,11 +60,11 @@ h3, h4, h5, h6 {
 }
 
 a {
-  color: #232323;
+  color: #242424;
 }
 
 a:focus, a:hover {
-  color: #232323;
+  color: #242424;
   text-decoration: underline;
 }
 
@@ -83,7 +85,7 @@ textarea {
 
 .footer {
   background-color: black;
-  color: #fff;
+  color: #242424;
   height: 200px;
   width: 100vw;
   position: relative;
@@ -91,8 +93,8 @@ textarea {
 
 .footer .footer-bottom {
   font-family: 'Josefin Sans', sans-serif !important;
-  background-color: #232323;
-  color: #fff;
+  background-color: white;
+  color: #242424;
   height: 50px;
   width: 100%;
   text-align: center;
@@ -232,7 +234,7 @@ textarea {
 /* Icons */
 .icon-button i {
   background: none;
-  color: #fff;
+  color: white;
   height: 3.6rem;
   left: 0;
   line-height: 3.6rem;
@@ -279,7 +281,7 @@ textarea {
   left: 5px;
   text-align: center;
   text-decoration: none;
-  color: #232323;
+  color: #242424;
   -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }
@@ -317,6 +319,10 @@ textarea {
   -webkit-touch-callout: none;
 }
 
+#menuToggle input-icons {
+  color: #00c805;
+}
+
 #menuToggle span {
   display: block;
   width: 33px;
@@ -348,7 +354,7 @@ textarea {
   opacity: 1;
   -webkit-transform: rotate(45deg) translate(-2px, -1px);
           transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+  background: #242424;
 }
 
 #menuToggle input:checked ~ span:nth-last-child(3) {
@@ -428,7 +434,7 @@ textarea {
   [ Form ]*/
 .login100-form {
   width: 100%;
-  color: #232323;
+  color: #242424;
 }
 
 .login100-form a {
@@ -438,7 +444,7 @@ textarea {
 .login100-form-title {
   font-family: Ubuntu-Bold;
   font-size: 33px;
-  color: #232323;
+  color: #242424;
   line-height: 1.2;
   text-transform: uppercase;
   text-align: center;
@@ -460,7 +466,7 @@ textarea {
 /*---------------------------------------------*/
 .input100 {
   font-family: Ubuntu-Bold;
-  color: #232323;
+  color: #242424;
   line-height: 1.2;
   font-size: 17px;
   border-radius: 4px;
@@ -508,7 +514,7 @@ textarea {
 
 /*Textarea*/
 .ui-input-container {
-  background-color: #fff;
+  background-color: white;
   padding: 3rem;
   border-radius: 6px;
   width: 50%;
@@ -530,6 +536,7 @@ textarea {
 }
 
 .ui-form-input {
+  background-color: white !important;
   padding: 13px 15px;
   border-radius: 4px;
   border: 2px solid #00c805;
@@ -544,7 +551,7 @@ textarea {
   font-size: 0.85rem;
   padding-right: 0.33rem;
   padding-left: 0.33rem;
-  background: #fff;
+  background: white;
   -webkit-transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: sans-serif;
@@ -574,7 +581,7 @@ textarea {
   border-bottom: 2px solid #9b9b9b;
   outline: 0;
   font-size: 1.3rem;
-  color: #232323;
+  color: #242424;
   padding: 7px 0;
   background: transparent;
   -webkit-transition: border-color 0.2s;
@@ -617,9 +624,9 @@ textarea {
   padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
-  -o-border-image: linear-gradient(to right, #00c805, #43d348);
-  border-image: -webkit-gradient(linear, left top, right top, from(#00c805), to(#43d348));
-  border-image: linear-gradient(to right, #00c805, #43d348);
+  -o-border-image: linear-gradient(to right, #00c805, #48c54c);
+  border-image: -webkit-gradient(linear, left top, right top, from(#00c805), to(#48c54c));
+  border-image: linear-gradient(to right, #00c805, #48c54c);
   border-image-slice: 1;
 }
 
@@ -647,7 +654,7 @@ button {
   text-align: center;
   width: 130px;
   border-radius: 4px;
-  background: #fff;
+  background: white;
   border: 2px solid #00c805;
   color: #00c805;
   letter-spacing: 1px;
@@ -660,7 +667,7 @@ button {
 }
 
 button:hover {
-  color: #fff;
+  color: white;
   background: #00c805;
 }
 
@@ -685,12 +692,12 @@ button:active {
 
 .onclic:hover {
   color: #00c805;
-  background: #fff;
+  background: white;
 }
 
 .validate {
   font-size: 13px;
-  color: #fff;
+  color: white;
   background: #00c805;
 }
 
@@ -728,7 +735,7 @@ button:active {
 
 .bootstrap-select .btn {
   text-align: center;
-  background-color: #fff;
+  background-color: white;
   border-style: solid;
   border: 2px solid #00c805;
   border-radius: 4px;
@@ -745,10 +752,12 @@ button:active {
 
 .bootstrap-select .btn:hover {
   background-color: #00c805;
-  color: #fff;
+  color: white;
 }
 
 .bootstrap-select .dropdown-menu {
+  background-color: white;
+  color: #242424;
   z-index: 2147483647;
 }
 
@@ -758,14 +767,19 @@ button:active {
 }
 
 .dropdown-item.active, .dropdown-item:active {
-  color: #fff;
+  color: white;
   text-decoration: none;
   background-color: #00c805;
 }
 
+.dropdown-item:hover {
+  background-color: white !important;
+  color: #00c805 !important;
+}
+
 .form-control:focus {
-  color: #232323;
-  background-color: #fff;
+  color: #242424;
+  background-color: white;
   border: 2px solid #00c805;
   outline: 0;
   -webkit-box-shadow: none;
@@ -773,14 +787,14 @@ button:active {
 }
 
 .bootstrap-select > .dropdown-toggle.bs-placeholder {
-  background-color: #fff !important;
+  background-color: white !important;
   text-transform: uppercase !important;
   color: #00c805 !important;
   content: uppercase !important;
 }
 
 .bootstrap-select > .dropdown-toggle.bs-placeholder:focus {
-  background-color: #fff !important;
+  background-color: white !important;
   color: #00c805 !important;
 }
 

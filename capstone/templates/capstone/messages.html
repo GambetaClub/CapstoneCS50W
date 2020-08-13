@@ -95,7 +95,7 @@
         <ul>
             {% for message in sent_messages %}
                 <li>
-                    <div> <span class="bold">{{message.receiver}}:</span> {{message.content}}</div> <small>{{message.timestamp}}</small><hr>
+                    <div> <span class="bold">{{message.receiver}}:</span> {{message.content}}</div> <div class="timestamp">{{ message.timestamp }}</div><hr>
                 </li>
             {% endfor %}
         </ul>

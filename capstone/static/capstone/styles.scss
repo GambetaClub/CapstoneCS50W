@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
+/* COLORS */
 $base-color: rgb(0, 200, 5);
-$base-light-color: rgb(67, 211, 72);
-$back-color: #fff;
-$font-color: #232323;
+$base-light-color: rgb(72, 197, 76);
+$back-color: rgb(255, 255, 255);
+$menu-color: #ededed;
+$footer-color: black;
+
+/*FONT COLORS */
+$font-color: #242424;
+$font-light-color: rgb(92, 92, 92);
+$menu-font-color: #242424;
+$menu-font-light-color: #cdcdcd;
 
 html {
   scrollbar-width: none;
@@ -89,16 +97,16 @@ textarea {
 }
 
 .footer {
-  background-color: black;
-  color: $back-color;
+  background-color: $footer-color;
+  color: $font-color;
   height: 200px;
   width: 100vw;
   position: relative;
 
   .footer-bottom {
     font-family: 'Josefin Sans', sans-serif !important;
-    background-color: $font-color;
-    color: $back-color;
+    background-color: $back-color;
+    color: $font-color;
     height: 50px;
     width: 100%;
     text-align: center;
@@ -163,13 +171,13 @@ textarea {
 
 .low {
   font-size: small;
-  color: rgb(92, 92, 92);
+  color: $font-light-color;
   text-align: center;
 }
 
 .timestamp {
   font-size: smaller;
-  color: rgb(92, 92, 92);
+  color: $font-light-color;
 }
 
 .swal-overlay {
@@ -189,7 +197,7 @@ textarea {
 /* Wrapper */
 
 .icon-button {
-  background-color: $back-color;
+  background-color: #fff;
   border-radius: 3.6rem;
   cursor: pointer;
   display: inline-block;
@@ -275,7 +283,7 @@ textarea {
 
   &:hover {
     .fab, .icon-instagram, .icon-google-plus {
-      color: $back-color;
+      color: #fff;
     }
   }
 }
@@ -298,7 +306,7 @@ textarea {
     left: 5px;
     text-align: center;
     text-decoration: none;
-    color: $font-color;
+    color: $menu-font-color;
     transition: color 0.3s ease;
   }
 
@@ -337,13 +345,18 @@ textarea {
     -webkit-touch-callout: none;
   }
 
+  input-icons {
+    color: $base-color;
+  }
+
+
   span {
     display: block;
     width: 33px;
     height: 4px;
     margin-bottom: 5px;
     position: relative;
-    background: #cdcdcd;
+    background: $menu-font-light-color;
     border-radius: 3px;
     z-index: 2147483646;
     transform-origin: 4px 0px;
@@ -382,7 +395,7 @@ textarea {
   padding: 50px;
   padding-top: 125px;
   z-index: 2147483645;
-  background: #ededed;
+  background: $menu-color;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
 
@@ -562,6 +575,7 @@ textarea {
     display: block;
   }
   .ui-form-input {
+    background-color: $back-color !important;
     padding: 13px 15px;
     border-radius: 4px;
     border: 2px solid $base-color;
@@ -786,6 +800,8 @@ button {
   }
 
   .dropdown-menu {
+    background-color: $back-color;
+    color: $font-color;
     z-index: 2147483647;
 
     li a.opt {
@@ -801,6 +817,11 @@ button {
     text-decoration: none;
     background-color: $base-color;
   }
+}
+
+.dropdown-item:hover {
+  background-color: $back-color !important;
+  color: $base-color !important;
 }
 
 .form-control:focus {
