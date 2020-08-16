@@ -230,7 +230,7 @@ textarea {
 
 .instagram span {
   background: #405de6;
-  background: linear-gradient(-135deg, #405de6 0%, #5851db 10%, #833ab4 17%, #c13584 27%, #e1306c 47%, #fd1d1d 64%, #f56040 77%, #f77737 86%, #fcaf45 96%, #ffdc80 100%);
+  background: linear-gradient(-135deg, #405de6 0%, #5851db 5%, #833ab4 17%, #c13584 27%, #e1306c 70%, #fd1d1d 80%, #f56040 86%, #f77737 90%, #fcaf45 96%, #ffdc80 100%);
 }
 
 .google-plus span {
@@ -523,7 +523,8 @@ textarea {
   background-color: white;
   padding: 3rem;
   border-radius: 6px;
-  width: 50%;
+  max-width: 60%;
+  min-width: 400px;
   margin: 0 auto;
 }
 
@@ -573,15 +574,21 @@ textarea {
 /* /////////////////// */
 /* Input */
 .form__group {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
   padding-top: 30px;
+  padding-left: 35px;
+  padding-right: 10px;
   padding-bottom: 0px;
   margin-top: 10px;
 }
 
 .form__field {
   font-family: inherit;
-  width: 100%;
+  width: 100% !important;
   height: 60%;
   border: 0;
   border-bottom: 2px solid #9b9b9b;

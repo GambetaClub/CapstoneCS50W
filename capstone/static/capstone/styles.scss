@@ -249,7 +249,7 @@ textarea {
 
 .instagram span {
   background: rgb(64,93,230);
-  background: linear-gradient(-135deg, rgba(64,93,230,1) 0%, rgba(88,81,219,1) 10%, rgba(131,58,180,1) 17%, rgba(193,53,132,1) 27%, rgba(225,48,108,1) 47%, rgba(253,29,29,1) 64%, rgba(245,96,64,1) 77%, rgba(247,119,55,1) 86%, rgba(252,175,69,1) 96%, rgba(255,220,128,1) 100%);;
+  background: linear-gradient(-135deg, rgba(64,93,230,1) 0%, rgba(88,81,219,1) 5%, rgba(131,58,180,1) 17%, rgba(193,53,132,1) 27%, rgba(225,48,108,1) 70%, rgba(253,29,29,1) 80%, rgba(245,96,64,1) 86%, rgba(247,119,55,1) 90%, rgba(252,175,69,1) 96%, rgba(255,220,128,1) 100%);;
 }
 
 .google-plus span {
@@ -565,7 +565,8 @@ textarea {
     background-color: $back-color;
     padding: 3rem;
     border-radius: 6px;
-    width: 50%;
+    max-width: 60%;
+    min-width: 400px;
     margin: 0 auto;
   }
   .ui-input-container h2 {
@@ -614,15 +615,19 @@ textarea {
   /* Input */
   
   .form__group {
+    width: 50%;
+    display: flex;
     position: relative;
     padding-top: 30px;
+    padding-left: 35px;
+    padding-right: 10px;
     padding-bottom: 0px;
     margin-top: 10px;
   }
   
   .form__field {
     font-family: inherit;
-    width: 100%;
+    width: 100% !important;
     height: 60%;
     border: 0;
     border-bottom: 2px solid #9b9b9b;

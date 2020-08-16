@@ -29,9 +29,9 @@
             get_passengers(trip_id)
             if(requestButton.innerHTML.indexOf('LIST FOR TRIP') != -1){
                 swal("Success", "You have succesfully listed for the trip.", "success")
-                requestButton.textContent = 'UNLIST FROM TRIP'
+                requestButton.textContent = 'DELIST FROM TRIP'
             }else{
-                swal("Success", "You have succesfully unlisted for the trip.", "success")
+                swal("Success", "You have succesfully delisted from the trip.", "success")
                 requestButton.textContent = 'LIST FOR TRIP'
             }
         }
@@ -101,7 +101,7 @@
         <div class="d-flex justify-content-center">
             <button name="request" type="submit" id="be_passenger" class="button" onclick="be_passenger({{trip.id}})" style="max-width: 200px; min-width: 15%;">
                 {% if is_passenger %}
-                UNLIST FROM TRIP
+                DELIST FROM TRIP
                 {% else %}
                 LIST FOR TRIP
                 {% endif %}

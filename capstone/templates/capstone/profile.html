@@ -1,68 +1,131 @@
-{% extends "capstone/layout.html" %}
-
-{% block body %}
-
-
-
-<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'capstone/profile.css' %}?{% now 'U' %}">
-<div class="wrapper">
-    <div class="left">
-        <img id="img" src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gifhttps://www.voya.ie/Interface/Icons/LoadingBasketContents.gifhttps://www.voya.ie/Interface/Icons/LoadingBasketContents.gif" alt="user" width="100">
-        <h3>{{user.first_name}} {{user.last_name}}</h4>
-         <h5 class="white">{{user.profession}}<h5>
-    </div>
-    <div class="right">
-        <div class="info">
-            <h3>Information</h3>
-            <div class="info_data">
-                 <div class="data">
-                    <h4>Email<i class="fas fa-envelope"></i></h4>
-                    <p>{{user.email}}</p>
-                 </div>
-                 <div class="data">
-                   <h4>Phone<i class="fas fa-phone"></i></h4>
-                    <p>{{user.phone}}</p>
-              </div>
-            </div>
-        </div>
-      
-      <div class="projects">
-            <h3>About {{user.first_name}}</h3>
-            <div class="projects_data">
-                 <div class="data">
-                    <h4>Recent</h4>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                 </div>
-                 <div class="data">
-                   <h4>Interests<i class="fas fa-heart"></i></h4>
-                    <p>{{user.interests}}</p>
-              </div>
-            </div>
-        </div>
-      
-        <div class="social_media">
-            <ul>
-            {% if user.instagram %}
-                <li><a id="instagram" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a></li>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Capstone</title>
+    <script src="https://kit.fontawesome.com/e603cb2c46.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/theaterjs/dist/theater.min.js"></script>
+    <script src="{% static 'capstone/apps.js' %}?{% now 'U' %}"></script>
+    <link rel="shortcut icon" href="{% static 'capstone/small_logo.png' %}?{% now 'U' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'capstone/index.css' %}?{% now 'U' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'capstone/styles.css' %}?{% now 'U' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+</head>
+<body>
+    <nav role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+          <a href="{% url 'index' %}"><img class="logo" src="{% static 'capstone/logo.png' %}?{% now 'U' %}" alt=""></a>
+          
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'profile' user.username %}">Profile<i class="fas fa-user-circle"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user_trips' %}">Your Trips<i class="fas fa-car"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'trips' %}">Trips<i class="fas fa-suitcase-rolling"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'create_trip' %}">Create Trip<i class="fas fa-plus-square"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'messages' %}">Messages<i class="fas fa-envelope"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'set_timezone' %}">Settings<i class="fas fa-cog"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Log Out<i class="fas fa-sign-out-alt"></i></a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Sign in<i class="fas fa-sign-in-alt"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Register<i class="fas fa-user-plus"></i></a>
+                </li>
             {% endif %}
-            </ul>
-      </div>
+          </ul>
+        </div>
+      </nav>
+    <div class="page-wrapper">
+        {% load tz %}
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'capstone/profile.css' %}?{% now 'U' %}">
+        <div class="wrapper">
+            <div class="left">
+                <img id="img" src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gifhttps://www.voya.ie/Interface/Icons/LoadingBasketContents.gifhttps://www.voya.ie/Interface/Icons/LoadingBasketContents.gif" alt="user" width="100">
+                <h3>{{user.first_name}} {{user.last_name}}</h3>
+                 <h5 class="white">{{user.profession}}<h5>
+            </div>
+            <div class="right">
+                <div class="info">
+                    <h3>Information</h3>
+                    <div class="info_data">
+                         <div class="data">
+                            <h4>Email<i class="fas fa-envelope"></i></h4>
+                            <p>{{user.email}}</p>
+                         </div>
+                         <div class="data">
+                           <h4>Phone<i class="fas fa-phone"></i></h4>
+                            <p>{{user.phone}}</p>
+                      </div>
+                    </div>
+                </div>
+              
+              <div class="projects">
+                    <h3>About {{user.first_name}}</h3>
+                    <div class="projects_data">
+                         <div class="data">
+                            <h4>Recent</h4>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                         </div>
+                         <div class="data">
+                           <h4>Interests<i class="fas fa-heart"></i></h4>
+                            <p>{{user.interests}}</p>
+                      </div>
+                    </div>
+                </div>
+              
+                <div class="social_media">
+                    <ul>
+                    {% if user.instagram %}
+                        <li><a id="instagram" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    {% endif %}
+                    </ul>
+              </div>
+            </div>
+        </div>
+        
+        <script>
+            var inst_username = "{{user.instagram}}";
+            document.getElementById('instagram').href = 'https://www.instagram.com/' + inst_username;
+        
+            fetch(`https://www.instagram.com/` + inst_username + `/?__a=1`)
+            .then(response => response.json())
+            .then(data => {
+                const img = data.graphql.user.profile_pic_url_hd;
+                document.getElementById('img').src = img
+            })
+        
+        </script>
     </div>
-</div>
-
-<script>
-    var inst_username = "{{user.instagram}}";
-    document.getElementById('instagram').href = 'https://www.instagram.com/' + inst_username;
-
-    fetch(`https://www.instagram.com/` + inst_username + `/?__a=1`)
-    .then(response => response.json())
-    .then(data => {
-        const img = data.graphql.user.profile_pic_url_hd;
-        document.getElementById('img').src = img
-    })
-
-</script>
-
-{% endblock %}
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+</html>
