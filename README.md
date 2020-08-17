@@ -1,6 +1,6 @@
 # Capstone
 
-This website was created for completing CS50W Harvard course. The website's main goal is to help people find others who are travelling to the same place for sharing the same car. Since the website is focused on the United States users, it has all the States and Cities of the country. Some of the features this website has are:
+This website was created for completing CS50W Harvard course. The website's primary goal is to help people find others who are traveling to the same place for sharing the same car. Since the site is focused on the United States users, it has all the States and Cities of the country. Some of the features this website has are:
 
 - User sessions.
 - Profile page.
@@ -12,24 +12,25 @@ This website was created for completing CS50W Harvard course. The website's main
 
 ### Smaller features the website has:
 
-- Typing effect in the main page.
-- Use of API's to get user's profile picture from Instagram.
+- Typing effect on the main page.
+- Use of APIs to get a user's profile picture from Instagram.
 - Use of HttpResponses for no loading the whole page again.
-- Loading cities corresponding to the selected state in Create Trip tab.
-- Syncronazing messages with Timezone.
+- Loading cities corresponding to the selected state in the Create Trip tab.
+- Synchronizing messages with Timezone.
 - Use of Swal alerts with HttpResponses
 
 ### This project uses:
 
-- Python
+- Python (3.8.3)
+- Django (3.0.8)
 - JavaScript
-- Django
 - CSS
 - HTML
 - SCSS
 
 ### Requirements:
 
+- Pitz
 - FontAwesome
 - SweetAlerts
 - JQuery (3.5.1)
