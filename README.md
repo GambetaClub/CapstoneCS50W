@@ -1,22 +1,22 @@
 # Capstone
 
-This website was created for completing CS50W Harvard course. The website's primary goal is to help people find others who are traveling to the same place for sharing the same car. Since the site is focused on the United States users, it has all the States and Cities of the country. Some of the features this website has are:
+This website was created for completing CS50W Harvard course. The website's primary goal is to help people find others who are traveling to the same place so they can share the same car. Since this site is focused on the American users, it has all the States and Cities of the country. Some of the features this website has are:
 
-- User sessions.
-- Profile page.
-- Send and receive messages.
-- Creating and deleting trips.
-- Searching trips by many filters.
-- Listing and delisting for/from a trip.
-- User's trips page.
+- User sessions
+- Profile page
+- Send and receive messages
+- Creating and deleting trips
+- Searching trips by many filters
+- Listing and delisting for/from a trip
+- Users' trips page
 
 ### Smaller features the website has:
 
-- Typing effect on the main page.
-- Use of APIs to get a user's profile picture from Instagram.
-- Use of HttpResponses for no loading the whole page again.
-- Loading cities corresponding to the selected state in the Create Trip tab.
-- Synchronizing messages with Timezone.
+- Typing effect on the main page
+- Use of APIs to get a user's profile picture from Instagram
+- Use of HttpResponses for not loading the whole page again
+- Loading cities corresponding to the selected state in the Create Trip tab
+- Synchronizing messages with Timezone
 - Use of Swal alerts with HttpResponses
 
 ### This project uses:
