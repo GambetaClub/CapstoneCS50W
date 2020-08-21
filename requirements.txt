@@ -1,10 +1,10 @@
-Python (3.8.3)
-Django (3.0.8)
+Python==3.8.3
+Django==3.0.8
 Pitz
 FontAwesome
 SweetAlerts
-JQuery (3.5.1)
-Bootstrap (4.4.1)
+JQuery==3.5.1
+Bootstrap==4.4.1
 TheaterJS
-Popper (1.12.9)
-Bootstrap Select (1.13.1)
+Popper==1.12.9)
+Bootstrap Select==1.13.1
